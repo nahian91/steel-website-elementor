@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
+class Almahsaan_Services_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -35,7 +35,7 @@ class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title(): string {
-		return esc_html__( 'oEmbed', 'elementor-oembed-widget' );
+		return esc_html__( 'Services', 'elementor-oembed-widget' );
 	}
 
 	/**
@@ -159,57 +159,135 @@ class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="experience"> 
+		 <section class="what-we-do section-space">
         <div class="container">
-            <div class="experience__item-wrapper">
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-1.svg" alt="image not found">
+            <div class="row">
+                <div class="section__title-wrapper text-center mb-55 mb-xs-40">
+                    <span class="section__subtitle justify-content-center">What We Do</span>
+                    <h2 class="section__title title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 42.2083px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">The</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 48px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">best</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 92.1333px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Services</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 35.6833px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">We</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 85.0833px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Provide</div></h2>
+                </div>
+            </div>
+
+            <div class="what-we-do__wrapper">
+                <div class="what-we-do__bg">
+                    <img src="<?php echo get_template_directory_uri();?>//assets/imgs/what-we-do/shape.png" alt="">
+                </div>
+                <div class="row">
+                <div class="col-xl-4 has--border has--border-1">
+                    <div class="what-we-do__item has--padding-pb">
+                        <div class="what-we-do__item-icon">
+                            <img src="<?php echo get_template_directory_uri();?>//assets/imgs/what-we-do/what-we-do-1.svg" alt="image not found">
                         </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 23.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Years</div> <div style="position: relative; display: inline-block; transform-origin: 10.6px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Of</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50.125px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Experience</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="15"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">1</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span></div></span>+</h2>
+                        <div class="text">
+                            <h6 class="what-we-do__item-title title-animation" style="perspective: 100px;"><a href="service-details.html"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 32.3667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Home</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 41.05px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Interior</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 37.45px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Design</div></a></h6>
+                            <p class="what-we-do__item-desc">Sagitis himos pulvinar morb socis laoreet posuere enim non auctor etiam pretium libero</p>
+                            <a href="service-details.html" class="what-we-do__item-arrow">
+                                Read More
+                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+    
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-2.svg" alt="image not found">
+                <div class="col-xl-4 has--border has--border-2">
+                    <div class="what-we-do__item has--padding-pb">
+                        <div class="what-we-do__item-icon">
+                            <img src="<?php echo get_template_directory_uri();?>//assets/imgs/what-we-do/what-we-do-2.svg" alt="image not found">
                         </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 35.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Success</div> <div style="position: relative; display: inline-block; transform-origin: 36.4333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Projects</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="600"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-3.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 24.8333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Team</div> <div style="position: relative; display: inline-block; transform-origin: 43.0917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Members</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="40"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">4</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
+                        <div class="text">
+                            <h6 class="what-we-do__item-title title-animation" style="perspective: 100px;"><a href="service-details.html"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 32.3667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Home</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 44.3333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Exterior</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 37.45px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Design</div></a></h6>
+                            <p class="what-we-do__item-desc">Sagitis himos pulvinar morb socis laoreet posuere enim non auctor etiam pretium libero</p>
+                            <a href="service-details.html" class="what-we-do__item-arrow">
+                                Read More
+                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+    
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-4.svg" alt="image not found">
+                <div class="col-xl-4 has--border has--border-3">
+                    <div class="what-we-do__item has--padding-pb">
+                        <div class="what-we-do__item-icon">
+                            <img src="<?php echo get_template_directory_uri();?>//assets/imgs/what-we-do/what-we-do-3.png" alt="image not found">
                         </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 30.7917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Clients</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 56.8917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Satisfactions</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
+                        <div class="text">
+                            <h6 class="what-we-do__item-title title-animation" style="perspective: 100px;"><a href="service-details.html"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 35.8833px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">2D/3D</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 37.45px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Design</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 37.4667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Layout</div></a></h6>
+                            <p class="what-we-do__item-desc">Sagitis himos pulvinar morb socis laoreet posuere enim non auctor etiam pretium libero</p>
+                            <a href="service-details.html" class="what-we-do__item-arrow">
+                                Read More
+                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+    
+                            </a>
                         </div>
                     </div>
-
                 </div>
+                <div class="col-xl-4 has--border has--border-4">
+                    <div class="what-we-do__item has--padding">
+                        <div class="what-we-do__item-icon">
+                            <img src="<?php echo get_template_directory_uri();?>//assets/imgs/what-we-do/what-we-do-4.svg" alt="image not found">
+                        </div>
+                        <div class="text">
+                            <h6 class="what-we-do__item-title title-animation" style="perspective: 100px;"><a href="service-details.html"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 58.1083px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Furniture's</div> <div style="position: relative; display: inline-block; transform-origin: 37.45px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Design</div></a></h6>
+                            <p class="what-we-do__item-desc">Sagitis himos pulvinar morb socis laoreet posuere enim non auctor etiam pretium libero</p>
+                            <a href="service-details.html" class="what-we-do__item-arrow">
+                                Read More
+                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+    
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 has--border has--border-5">
+                    <div class="what-we-do__item has--padding">
+                        <div class="what-we-do__item-icon">
+                            <img src="<?php echo get_template_directory_uri();?>//assets/imgs/what-we-do/what-we-do-5.svg" alt="image not found">
+                        </div>
+                        <div class="text">
+                            <h6 class="what-we-do__item-title title-animation" style="perspective: 100px;"><a href="service-details.html"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 42.2917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Modern</div> <div style="position: relative; display: inline-block; transform-origin: 32.3667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Home</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 41.05px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Interior</div></a></h6>
+                            <p class="what-we-do__item-desc">Sagitis himos pulvinar morb socis laoreet posuere enim non auctor etiam pretium libero</p>
+                            <a href="service-details.html" class="what-we-do__item-arrow">
+                                Read More
+                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+    
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 has--border has--border-6">
+                    <div class="what-we-do__item has--padding">
+                        <div class="what-we-do__item-icon">
+                            <img src="<?php echo get_template_directory_uri();?>//assets/imgs/what-we-do/what-we-do-6.svg" alt="image not found">
+                        </div>
+                        <div class="text">
+                            <h6 class="what-we-do__item-title title-animation" style="perspective: 100px;"><a href="service-details.html"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 41.6417px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Custom</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 37.45px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Design</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 24.1583px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Plan</div></a></h6>
+                            <p class="what-we-do__item-desc">Sagitis himos pulvinar morb socis laoreet posuere enim non auctor etiam pretium libero</p>
+                            <a href="service-details.html" class="what-we-do__item-arrow">
+                                Read More
+                               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+    
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </section>

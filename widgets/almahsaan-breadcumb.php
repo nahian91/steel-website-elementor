@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Almahsaan_Section_Title_Widget extends \Elementor\Widget_Base {
+class Almahsaan_Breadcumb_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -35,7 +35,7 @@ class Almahsaan_Section_Title_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Section Title', 'elementor-oembed-widget' );
+		return esc_html__( 'Breadcumb', 'elementor-oembed-widget' );
 	}
 
 	/**

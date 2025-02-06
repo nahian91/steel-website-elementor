@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
+class Almahsaan_Ongoing_Projects_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -35,7 +35,7 @@ class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title(): string {
-		return esc_html__( 'oEmbed', 'elementor-oembed-widget' );
+		return esc_html__( 'Ongoing Projects', 'elementor-oembed-widget' );
 	}
 
 	/**
@@ -159,60 +159,156 @@ class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="experience"> 
+		<!-- recent-project area start -->
+		<section class="recent-project section-space">
         <div class="container">
-            <div class="experience__item-wrapper">
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-1.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 23.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Years</div> <div style="position: relative; display: inline-block; transform-origin: 10.6px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Of</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50.125px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Experience</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="15"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">1</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span></div></span>+</h2>
-                        </div>
+            <div class="row mb-60 mb-md-100 mb-sm-100 mb-xs-80 justify-content-center align-items-center">
+                <div class="col-lg-6">
+                    <div class="section__title-wrapper mb-20">
+                        <span class="section__subtitle">Ongoing Project</span>
+                        <h2 class="section__title title-animation">Our Ongoing Projects</h2>
                     </div>
                 </div>
+                <div class="col-lg-6">
+                    <div class="recent-project__slider__arrow d-flex justify-content-lg-end justify-content-start">
+                        <button class="recent-project__slider__arrow-prev d-flex align-items-center justify-content-center">
+                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 1L1 9L9 17" stroke="#080A0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                                
+                        </button>
 
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-2.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 35.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Success</div> <div style="position: relative; display: inline-block; transform-origin: 36.4333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Projects</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="600"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                        </div>
+                        <button class="recent-project__slider__arrow-next d-flex align-items-center justify-content-center">
+                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L9 9L1 17" stroke="#080A0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                      
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-3.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 24.8333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Team</div> <div style="position: relative; display: inline-block; transform-origin: 43.0917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Members</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="40"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">4</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
+            <div class="swiper recent-project__active">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="recent-project__item">
+                            <div class="recent-project__media">
+                                <img src="<?php echo get_template_directory_uri();?>/assets/imgs/recent-project/recent-project-1.jpg" alt="image not found">
+
+                                <a href="protfolio-details.php" class="recent-project__arrow">
+                                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.50684 18.5306L20.2812 2.01485" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.1182 0.978088L21.0834 1.0086L21.0529 9.97384" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="recent-project__text">
+                                <h6>Custom furniture</h6>
+                                <a href="protfolio-details.php">Explore More
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                            
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="swiper-slide">
+                        <div class="recent-project__item">
+                            <div class="recent-project__media">
+                                <img src="<?php echo get_template_directory_uri();?>/assets/imgs/recent-project/recent-project-2.jpg" alt="image not found">
 
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-4.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 30.7917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Clients</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 56.8917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Satisfactions</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
+                                <a href="protfolio-details.php" class="recent-project__arrow">
+                                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.50684 18.5306L20.2812 2.01485" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.1182 0.978088L21.0834 1.0086L21.0529 9.97384" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="recent-project__text">
+                                <h6>Residential projects</h6>
+                                <a href="protfolio-details.php">Explore More
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                            
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="recent-project__item">
+                            <div class="recent-project__media">
+                                <img src="<?php echo get_template_directory_uri();?>/assets/imgs/recent-project/recent-project-3.jpg" alt="image not found">
 
+                                <a href="protfolio-details.php" class="recent-project__arrow">
+                                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.50684 18.5306L20.2812 2.01485" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.1182 0.978088L21.0834 1.0086L21.0529 9.97384" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="recent-project__text">
+                                <h6>Family Apartment</h6>
+                                <a href="protfolio-details.php">Explore More
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                            
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="recent-project__item">
+                            <div class="recent-project__media">
+                                <img src="<?php echo get_template_directory_uri();?>/assets/imgs/recent-project/recent-project-4.jpg" alt="image not found">
+
+                                <a href="protfolio-details.php" class="recent-project__arrow">
+                                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.50684 18.5306L20.2812 2.01485" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.1182 0.978088L21.0834 1.0086L21.0529 9.97384" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="recent-project__text">
+                                <h6>Eco-friendly design</h6>
+                                <a href="protfolio-details.php">Explore More
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                            
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="recent-project__item">
+                            <div class="recent-project__media">
+                                <img src="<?php echo get_template_directory_uri();?>/assets/imgs/recent-project/recent-project-5.jpg" alt="image not found">
+
+                                <a href="protfolio-details.php" class="recent-project__arrow">
+                                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.50684 18.5306L20.2812 2.01485" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.1182 0.978088L21.0834 1.0086L21.0529 9.97384" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="recent-project__text">
+                                <h6>Eco-friendly design</h6>
+                                <a href="protfolio-details.php">Explore More
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6H11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 1L11 6L6 11" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                            
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- recent-project area end -->
 		<?php
 	}
 

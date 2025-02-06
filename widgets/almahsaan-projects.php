@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
+class Almahsaan_Projects_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -35,7 +35,7 @@ class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title(): string {
-		return esc_html__( 'oEmbed', 'elementor-oembed-widget' );
+		return esc_html__( 'Projects', 'elementor-oembed-widget' );
 	}
 
 	/**
@@ -159,56 +159,49 @@ class Elementor_Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="experience"> 
+		 <section class="latest-project section-space">
         <div class="container">
-            <div class="experience__item-wrapper">
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-1.svg" alt="image not found">
+            <div class="row mb-55 mb-xs-40">
+                <div class="col-lg-12">
+                    <div class="section__title-wrapper text-center">
+                        <h2 class="section__title title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 42.9333px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Our</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 90.5417px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Projects</div></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gx-100 mb-minus-60">
+
+                <div class="col-lg-6">
+                    <div class="latest-project__item">
+                        <div class="latest-project__media">
+                            <img class="wow clip-a-z" src="<?php echo get_template_directory_uri();?>/assets/imgs/latest-project/latest-project-1.jpg" alt="image not found" style="visibility: visible; animation-name: clip-a-z;">
+                            <a class="icon" href="protfolio-details.html">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.48633 23.4867L22.4072 5.56579" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M14.3848 4.61475H23.3501V13.58" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>                                                                                          
+                            </a>
                         </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 23.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Years</div> <div style="position: relative; display: inline-block; transform-origin: 10.6px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Of</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50.125px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Experience</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="15"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">1</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span></div></span>+</h2>
+                        <div class="latest-project__text">
+                            <h5 class="title-animation" style="perspective: 100px;"><a href="protfolio-details.html">Government Sector</a></h5>
                         </div>
                     </div>
                 </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-2.svg" alt="image not found">
+                <div class="col-lg-6">
+                    <div class="latest-project__item">
+                        <div class="latest-project__media">
+                            <img class="wow clip-a-z" src="<?php echo get_template_directory_uri();?>/assets/imgs/latest-project/latest-project-2.jpg" alt="image not found" style="visibility: visible; animation-name: clip-a-z;">
+                            <a class="icon" href="protfolio-details.html">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.48633 23.4867L22.4072 5.56579" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M14.3848 4.61475H23.3501V13.58" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>                                                                                          
+                            </a>
                         </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 35.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Success</div> <div style="position: relative; display: inline-block; transform-origin: 36.4333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Projects</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="600"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-3.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 24.8333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Team</div> <div style="position: relative; display: inline-block; transform-origin: 43.0917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Members</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="40"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">4</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
+                        <div class="latest-project__text">
+                            <h5 class="title-animation" style="perspective: 100px;"><a href="protfolio-details.html">Private Sector</a></h5>
                         </div>
                     </div>
-                </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-4.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 30.7917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Clients</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 56.8917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Satisfactions</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>

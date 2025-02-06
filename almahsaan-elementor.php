@@ -28,9 +28,25 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function register_oembed_widget( $widgets_manager ) {
 
+	require_once( __DIR__ . '/widgets/almahsaan-about.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-breadcumb.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-counter.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-faqs.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-ongoing-projects.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-process.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-projects.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-section-title.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-services.php' );
 
-	$widgets_manager->register( new \Elementor_Almahsaan_Counter_Widget() );
+	$widgets_manager->register( new \Almahsaan_About_Widget() );
+	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
+	$widgets_manager->register( new \Almahsaan_Counter_Widget() );
+	$widgets_manager->register( new \Almahsaan_Faqs_Widget() );
+	$widgets_manager->register( new \Almahsaan_Ongoing_Projects_Widget() );
+	$widgets_manager->register( new \Almahsaan_Process_Widget() );
+	$widgets_manager->register( new \Almahsaan_Projects_Widget() );
+	$widgets_manager->register( new \Almahsaan_Section_Title_Widget() );
+	$widgets_manager->register( new \Almahsaan_Services_Widget() );
 
 }
 add_action( 'elementor/widgets/register', 'register_oembed_widget' );
