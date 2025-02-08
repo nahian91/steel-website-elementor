@@ -22,7 +22,7 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name(): string {
-		return 'oembed';
+		return 'process';
 	}
 
 	/**
