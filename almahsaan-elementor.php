@@ -40,6 +40,8 @@ function register_oembed_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/almahsaan-banner.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-logos.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-contact1.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-mission-vision.php' );
 
 	$widgets_manager->register( new \Almahsaan_About_Widget() );
 	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
@@ -53,6 +55,29 @@ function register_oembed_widget( $widgets_manager ) {
 	$widgets_manager->register( new \Almahsaan_Logos_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
 	$widgets_manager->register( new \Almahsaan_Contact1_Widget() );
+	$widgets_manager->register( new \Almahsaan_Gallery_Widget() );
+	$widgets_manager->register( new \Almahsaan_Mission_Vision_Widget() );
 
 }
 add_action( 'elementor/widgets/register', 'register_oembed_widget' );
+
+function my_elementor_addon_enqueue_scripts() {
+    // CSS File
+    wp_enqueue_style(
+        'my-elementor-addon-style', 
+        plugin_dir_url(__FILE__) . 'assets/css/main.css',
+        [],
+        '1.0.0'
+    );
+
+    // JS File
+    wp_enqueue_script(
+        'my-elementor-addon-script',
+        plugin_dir_url(__FILE__) . 'assets/js/main.js',
+        ['jquery'],
+        '1.0.0',
+        true // Load in footer
+    );
+}
+add_action('wp_enqueue_scripts', 'my_elementor_addon_enqueue_scripts');
+
