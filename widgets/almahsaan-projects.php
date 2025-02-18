@@ -133,19 +133,52 @@ class Almahsaan_Projects_Widget extends \Elementor\Widget_Base {
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
-
-		$this->add_control(
-			'url',
-			[
-				'label' => esc_html__( 'URL to embed', 'elementor-oembed-widget' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'input_type' => 'url',
-				'placeholder' => esc_html__( 'https://your-link.com', 'elementor-oembed-widget' ),
-			]
-		);
+		
+		// Add category select field
+        $this->add_control(
+            'category_filter',
+            [
+                'label' => esc_html__( 'Select Category', 'textdomain' ),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $this->fetch_project_categories(), // Get categories dynamically
+                'label_block' => true,
+            ]
+        );
 
 		$this->end_controls_section();
+		
+		/**
+		 * Get Categories for Dropdown
+		 *
+		 * This method returns an array of category slugs for the select control.
+		 *
+		 * @return array
+		 */
 
+	}
+
+	/**
+     * Function to get categories dynamically
+     *
+     * Fetches all categories and returns them for use in the widget controls
+     * 
+     * @return array $category_options
+     */
+    public function fetch_project_categories() {
+		// Change 'project_category' to your custom taxonomy slug
+		$terms = get_terms([
+			'taxonomy' => 'project', // Replace with your custom taxonomy name
+			'hide_empty' => false, // Set to true if you want only categories with posts
+		]);
+	
+		$category_options = [];
+		
+		// Loop through each term and add to options array
+		foreach ( $terms as $term ) {
+			$category_options[$term->term_id] = $term->name; // Using term_id as the option value
+		}
+	
+		return $category_options;
 	}
 
 	/**
@@ -158,55 +191,71 @@ class Almahsaan_Projects_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
-		?>
-		 <section class="latest-project section-space">
-        <div class="container">
-            <div class="row mb-55 mb-xs-40">
-                <div class="col-lg-12">
-                    <div class="section__title-wrapper text-center">
-                        <h2 class="section__title title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 42.9333px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Our</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 90.5417px 32px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Projects</div></h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row gx-100 mb-minus-60">
-
-                <div class="col-lg-6">
-                    <div class="latest-project__item">
-                        <div class="latest-project__media">
-                            <img class="wow clip-a-z" src="<?php echo get_template_directory_uri();?>/assets/imgs/latest-project/latest-project-1.jpg" alt="image not found" style="visibility: visible; animation-name: clip-a-z;">
-                            <a class="icon" href="protfolio-details.html">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.48633 23.4867L22.4072 5.56579" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M14.3848 4.61475H23.3501V13.58" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>                                                                                          
-                            </a>
-                        </div>
-                        <div class="latest-project__text">
-                            <h5 class="title-animation" style="perspective: 100px;"><a href="protfolio-details.html">Government Sector</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="latest-project__item">
-                        <div class="latest-project__media">
-                            <img class="wow clip-a-z" src="<?php echo get_template_directory_uri();?>/assets/imgs/latest-project/latest-project-2.jpg" alt="image not found" style="visibility: visible; animation-name: clip-a-z;">
-                            <a class="icon" href="protfolio-details.html">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.48633 23.4867L22.4072 5.56579" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M14.3848 4.61475H23.3501V13.58" stroke="#906E50" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>                                                                                          
-                            </a>
-                        </div>
-                        <div class="latest-project__text">
-                            <h5 class="title-animation" style="perspective: 100px;"><a href="protfolio-details.html">Private Sector</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-		<?php
+	
+		// Query for Projects CPT
+		$args = [
+			'post_type' => 'projects', // Make sure 'projects' is your CPT slug
+			'posts_per_page' => -1, // Adjust as needed for pagination or limit
+		];
+	
+		$projects_query = new WP_Query( $args );
+	
+		if ( $projects_query->have_posts() ) :
+			?>
+			<div class="container">
+				<div class="row">
+					<?php 
+					// Loop through the posts
+					while ( $projects_query->have_posts() ) : $projects_query->the_post();
+						// Get the featured image
+						$project_img = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+						// Get the title
+						$project_title = get_the_title();
+						// Get the excerpt
+						$project_excerpt = get_the_excerpt();
+						// Get the categories of the project
+						$categories = get_the_terms( get_the_ID(), 'project' ); // Replace 'project_category' with your taxonomy slug
+						$category_names = [];
+	
+						if ( ! empty( $categories ) ) {
+							foreach ( $categories as $category ) {
+								$category_names[] = $category->name;
+							}
+						}
+	
+						// Display the project
+						?>
+						<div class="col-lg-4 col-sm-6 grid-item <?php echo esc_attr( implode( ' ', $category_names ) ); ?>">
+							<div class="protfolio__item">
+								<div class="protfolio__item-media">
+									<img src="<?php echo esc_url( $project_img ); ?>" class="img-fluid" alt="<?php echo esc_attr( $project_title ); ?>">
+								</div>
+								<a href="<?php the_permalink(); ?>" class="protfolio__item-icon">
+									<svg width="27" height="27" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M27 2V27" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+										<path d="M27 27H52" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+										<path d="M42 20L52 27L42 34" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+								</a>
+								<div class="protfolio__item-text">                        
+									<h6><a href="<?php the_permalink(); ?>"><?php echo esc_html( $project_title ); ?></a></h6>
+									<?php if ( ! empty( $project_excerpt ) ) : ?>
+										<p><?php echo esc_html( $project_excerpt ); ?></p>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+					endwhile;
+					?>
+				</div>
+			</div>
+			<?php
+		else :
+			echo '<p>No projects found.</p>';
+		endif;
+	
+		// Reset post data
+		wp_reset_postdata();
 	}
-
-}
+}	

@@ -159,17 +159,18 @@ class Almahsaan_Breadcumb_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
-		$breadcumb_image = $settings['breadcumb_image'];
+		$breadcumb_image = $settings['breadcumb_image']['url'];
 		?>
-		<div class="breadcrumb__area header__background-color breadcrumb__header-up breadcrumb-space overly overflow-hidden">
-        <div class="breadcrumb__background" data-background="<?php echo $breadcumb_image['url'];?>" style="background-image: url(&quot;<?php echo $breadcumb_image['url'];?>&quot;);"></div>
+		 <!-- Breadcrumb area start  -->
+		 <div class="breadcrumb__area header__background-color breadcrumb__header-up breadcrumb-space overly overflow-hidden">
+        <div class="breadcrumb__background" data-background="<?php echo esc_url($breadcumb_image);?>"></div>
         <div class="container">
             <div class="breadcrumb__bg-left"></div>
             <div class="breadcrumb__bg-right"></div>
             <div class="row align-items-center justify-content-between">
                 <div class="col-12">
                     <div class="breadcrumb__content text-center">
-                        <h2 class="breadcrumb__title mb-15 mb-sm-10 mb-xs-5 color-white title-animation"><div><?php the_title();?></div></h2>
+                        <h2 class="breadcrumb__title mb-15 mb-sm-10 mb-xs-5 color-white title-animation"><?php the_title();?></h2>
 
                         <div class="breadcrumb__menu">
                             <nav>
@@ -184,6 +185,7 @@ class Almahsaan_Breadcumb_Widget extends \Elementor\Widget_Base {
             </div>
         </div>
     </div>
+    <!-- Breadcrumb area start  -->
 		<?php
 	}
 

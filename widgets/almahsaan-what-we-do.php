@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Almahsaan_Contact1_Widget extends \Elementor\Widget_Base {
+class Almahsaan_What_We_Do_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -22,7 +22,7 @@ class Almahsaan_Contact1_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name(): string {
-		return 'contact1';
+		return 'what-we-do';
 	}
 
 	/**
@@ -35,7 +35,7 @@ class Almahsaan_Contact1_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Contact 1', 'elementor-oembed-widget' );
+		return esc_html__( 'What We Do', 'elementor-oembed-widget' );
 	}
 
 	/**

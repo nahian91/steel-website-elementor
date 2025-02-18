@@ -42,6 +42,8 @@ function register_oembed_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/almahsaan-contact1.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-mission-vision.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-products.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-image-faqs.php' );
 
 	$widgets_manager->register( new \Almahsaan_About_Widget() );
 	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
@@ -51,12 +53,11 @@ function register_oembed_widget( $widgets_manager ) {
 	$widgets_manager->register( new \Almahsaan_Process_Widget() );
 	$widgets_manager->register( new \Almahsaan_Projects_Widget() );
 	$widgets_manager->register( new \Almahsaan_Section_Title_Widget() );
-	$widgets_manager->register( new \Almahsaan_Services_Widget() );
-	$widgets_manager->register( new \Almahsaan_Logos_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
 	$widgets_manager->register( new \Almahsaan_Contact1_Widget() );
 	$widgets_manager->register( new \Almahsaan_Gallery_Widget() );
-	$widgets_manager->register( new \Almahsaan_Mission_Vision_Widget() );
+	$widgets_manager->register( new \Almahsaan_Products() );
+	$widgets_manager->register( new \Almahsaan_Image_Faqs_Widget() );
 
 }
 add_action( 'elementor/widgets/register', 'register_oembed_widget' );

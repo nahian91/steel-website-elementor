@@ -206,117 +206,63 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
+		$gallery_list = $settings['gallery_list'];
 		?>
-		 <section class="our-featured-service background-gay  section-space">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-1.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-1.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-2.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-2.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-3.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-3.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-4.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-4.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-5.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-5.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-6.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-6.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-7.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-7.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="protfolio__item">
-                        <div class="protfolio__item-media ">
-                            <img src="assets/imgs/gallery/image-8.png" class="img-fluid" alt="image not found">
-                        </div>
-                        <a href="assets/imgs/gallery/image-8.png" class="protfolio__item-icon  popup-image">
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>                     
+				<?php
+					foreach($gallery_list as $gallery) {
+						$gallery_type = $gallery['gallery_type'];
+						$gallery_img = $gallery['gallery_img']['url'];
+						$gallery_video = $gallery['gallery_video']['url'];
+						$gallery_subtitle = $gallery['gallery_subtitle'];
+						$gallery_title = $gallery['gallery_title'];
+						?>
+						<div class="col-md-4">
+							<div class="protfolio__item">
+								<?php if($gallery_type == 'image'){
+									?>
+										<div class="protfolio__item-media ">
+											<img src="<?php echo esc_url($gallery_img);?>" class="img-fluid" alt="<?php echo esc_html($gallery_title);?>">
+										</div>
+										<a href="<?php echo esc_url($gallery_img);?>" class="protfolio__item-icon popup-image">
+											<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+											<path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+											</svg>
+										</a>
+									<?php
+								} else {
+									?>
+										<div class="protfolio__item-media ">
+										<?php
+// Assuming $youtube_url contains the full YouTube URL
+$youtube_url = 'https://www.youtube.com/watch?v=ScMzIvxBSi4';
+
+// Extract the video ID from the URL
+preg_match('/(?:https?:\/\/)?(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)([a-zA-Z0-9_-]{11})/', $youtube_url, $matches);
+
+$youtube_video_id = isset($matches[1]) ? $matches[1] : ''; // The video ID
+?>
+
+<iframe width="100%" height="300" src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_video_id); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+										</div>
+										<a href="<?php echo esc_url($gallery_video);?>" class="protfolio__item-icon popup-video">
+											<svg id="playButton" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path class="line" d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+												<path class="line" d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+											</svg>
+										</a>
+									<?php
+								} ?>
+							</div>
+						</div>    
+						<?php
+					}
+				?>                 
             </div>
         </div>
-    </section>
 		<?php
 	}
 

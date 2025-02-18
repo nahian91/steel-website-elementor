@@ -2,14 +2,14 @@
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class Almahsaan_Faqs_Widget extends \Elementor\Widget_Base {
+class Almahsaan_Image_Faqs_Widget extends \Elementor\Widget_Base {
 
     public function get_name() {
-        return 'faqs';
+        return 'image-faqs';
     }
 
     public function get_title() {
-        return __('Faqs', 'plugin-name');
+        return __('Image Faqs', 'plugin-name');
     }
 
     public function get_icon() {

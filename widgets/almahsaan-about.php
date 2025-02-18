@@ -159,15 +159,16 @@ class Almahsaan_About_Widget extends \Elementor\Widget_Base {
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 		?>
-		 <section class="about-us section-space__bottom">
-        <div class="container-fluid">
+		<!--about-us area start -->
+		<section class="about-us section-space">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-us__media">
-                        <img class="wow clip-a-z" src="<?php echo get_template_directory_uri();?>/assets/imgs/about-us/about.jpg" alt="image not found" style="visibility: visible; animation-name: clip-a-z;">
+                        <img class="wow clip-a-z" src="./assets/imgs/about-us/about.jpg" alt="image not found">
 
                         <div class="about-us__box">
-                            <h4><span class="odometer odometer-auto-theme" data-count="20"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span></h4>
+                            <h4><span class="odometer" data-count="20">0</span></h4>
                             <h6>Years <br> Experience</h6>
                         </div>
 
@@ -182,39 +183,62 @@ class Almahsaan_About_Widget extends \Elementor\Widget_Base {
 
                 <div class="col-lg-6">
                     <div class="about-us__content">
-                        <h2 class="section__title mb-25 title-animation" >Welcome to AL MASHAAN STEEL CO.</h2>
-                        <p>Since 2006, Al Mashaan Steel Co. has forged a strong legacy in Kuwait’s metal fabrication industry by blending innovation with superior craftsmanship. Over the years, we have continually refined our techniques and expanded our expertise, delivering exceptional steel fabrication solutions from architectural metal works to fire rated and stainless steel doors that meet and exceed global standards. Our longstanding commitment to quality, reliability, and customer satisfaction sets us apart as a trusted leader in the field. </p>
-                        <p class="mb-0">At Al Mashaan Steel Co., we specialise in comprehensive structural and architectural metal fabrication, offering top-quality solutions in stainless steel, mild steel, and galvanised steel. As an internationally recognized manufacturer of metal fire-rated and stainless steel doors, all our products are rigorously tested and certified to BS 476: Part 22 standards for superior safety and durability. Our range includes:</p>
-                            <p><br>Each product is supported by authoritative certifications and licenses, ensuring the highest quality and compliance:</p>
-                            <ul style="list-style: none" class="mb-20">
-                                <li><strong>Product Certification: UKAZ No. 012</strong></li>
-                                <li><strong>Quality Certification: BM Trada Product No. 565</strong></li>
-                                <li><strong>Fire Testing: Certified International Fire Laboratory</strong></li>
-                                <li><strong>Kuwait Fire Brigade Licenses: No. 372 &amp; 118</strong></li>
-                            </ul>
-                            <p>Our unwavering commitment to innovation, supported by seasoned professionals and advanced manufacturing techniques, ensures that our products consistently surpass industry standards. By blending global insight with local expertise, Al Mashaan Steel Co. crafts tailor-made metal solutions designed to withstand the test of time and meet the evolving demands of modern infrastructure.</p>
+                        <div class="section__title-wrapper mb-45 mb-xs-40">
+                            <span class="section__subtitle justify-content-center">Welcome To Artima</span>
+                            <h2 class="section__title mb-25 title-animation">Interior Design with Different Approach</h2>
+                            <p class="mb-0">Et purus duis sollicitudin dignissim habitant. Egestas nulla quis venenatis cras sed eu massa eu faucibus Urna fusce Et purus duis sollicitudin dig- nissim habitant.</p>
+                        </div>
+
+                        <div class="skill-one__progress mb-50 mb-xs-30">
+                            <div class="skill-one__progress-single">
+                                <h6 class="skill-one__progress-title">Interior Design</h6>
+                                <div class="bar">
+                                    <div class="bar-inner count-bar counted" data-percent="90%">
+                                        <div class="count-text">90%</div>
+                                    </div>
+                                </div>
+                            </div>
     
-                            <a href="contact.php" class="rr-btn__header">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">Company Profile
-                                                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 6.5H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M6 1.5L11 6.5L6 11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                            </span>
-                                            <span class="text-two">Company Profile
-                                                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 6.5H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M6 1.5L11 6.5L6 11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                            </span>
-                                        </span>
-                                    </a>
+                            <div class="skill-one__progress-single">
+                                <h6 class="skill-one__progress-title">Architecture</h6>
+                                <div class="bar">
+                                    <div class="bar-inner count-bar counted" data-percent="80%">
+                                        <div class="count-text">80%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-one__progress-single">
+                                <h6 class="skill-one__progress-title">3D Design</h6>
+                                <div class="bar">
+                                    <div class="bar-inner count-bar counted" data-percent="95%">
+                                        <div class="count-text">95%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <a href="about-us.html" class="rr-btn">
+                            <span class="btn-wrap">
+                                <span class="text-one">Learn More 
+                                    <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6.5H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 1.5L11 6.5L6 11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span class="text-two">Learn More 
+                                    <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6.5H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 1.5L11 6.5L6 11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!--about-us area end -->
 		<?php
 	}
 

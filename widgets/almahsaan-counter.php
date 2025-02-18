@@ -135,12 +135,39 @@ class Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'url',
+			'counters_list',
 			[
-				'label' => esc_html__( 'URL to embed', 'elementor-oembed-widget' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'input_type' => 'url',
-				'placeholder' => esc_html__( 'https://your-link.com', 'elementor-oembed-widget' ),
+				'label' => esc_html__( 'Counters List', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::REPEATER,
+				'fields' => [
+					[
+						'name' => 'counter_image',
+						'label' => esc_html__( 'Image', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::MEDIA,
+						'default' => [
+							'url' => \Elementor\Utils::get_placeholder_image_src(),
+						],
+						'label_block' => true,
+					],
+					[
+						'name' => 'counter_title',
+						'label' => esc_html__( 'Title', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::TEXT,
+						'label_block' => true,
+					],
+					[
+						'name' => 'counter_number',
+						'label' => esc_html__( 'Number', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::NUMBER,
+						'label_block' => true,
+					],
+					[
+						'name' => 'counter_suffix',
+						'label' => esc_html__( 'Suffix', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::TEXT,
+						'label_block' => true,
+					]
+				]
 			]
 		);
 
@@ -158,62 +185,37 @@ class Almahsaan_Counter_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
-		?>
-		<section class="experience"> 
+		$counters_list = $settings['counters_list'];
+	?>
+		 <!-- experience start -->
+		 <section class="experience"> 
         <div class="container">
             <div class="experience__item-wrapper">
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-1.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 23.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Years</div> <div style="position: relative; display: inline-block; transform-origin: 10.6px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Of</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50.125px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Experience</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="15"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">1</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span></div></span>+</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-2.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 35.7667px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Success</div> <div style="position: relative; display: inline-block; transform-origin: 36.4333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Projects</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="600"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">6</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-3.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 24.8333px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Team</div> <div style="position: relative; display: inline-block; transform-origin: 43.0917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Members</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="40"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">4</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience__item">
-                    <div class="experience__item-content">
-                        <div class="experience__item-content-icon">
-                            <img src="<?php echo get_template_directory_uri();?>/assets/imgs/experience/experience-4.svg" alt="image not found">
-                        </div>
-                        <div class="experience__item-content-text">
-                            <h6 class="title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 30.7917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Clients</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 56.8917px 17px 0px; transform: translate(0px); opacity: 1; visibility: inherit;">Satisfactions</div></h6>
-                            <h2><span class="odometer odometer-auto-theme" data-count="500"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">5</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">0</span></span></span></span></span></div></span>+</h2>
-                        </div>
-                    </div>
-
-                </div>
+				<?php 
+					foreach($counters_list as $counter) {
+						$counter_image = $counter['counter_image']['url'];
+						$counter_title = $counter['counter_title'];
+						$counter_number = $counter['counter_number'];
+						$counter_suffix = $counter['counter_suffix'];
+						?>
+						<div class="experience__item">
+							<div class="experience__item-content">
+								<div class="experience__item-content-icon">
+									<img src="<?php echo esc_url($counter_image);?>" alt="<?php echo $counter_title;?>">
+								</div>
+								<div class="experience__item-content-text">
+									<h6 class="title-animation"><?php echo $counter_title;?></h6>
+									<h2><span class="odometer" data-count="<?php echo $counter_number;?>">0</span><?php echo $counter_suffix;?></h2>
+								</div>
+							</div>
+						</div>
+						<?php
+					}
+				?>
             </div>
         </div>
     </section>
+    <!-- experience end -->
 		<?php
 	}
-
-}
+}	
