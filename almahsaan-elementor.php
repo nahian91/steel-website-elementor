@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: Elementor oEmbed Widget
+ * Plugin Name: Al Mashaan Steel Elementor
  * Description: Auto embed any embbedable content from external URLs into Elementor.
- * Plugin URI:  https://elementor.com/
+ * Plugin URI:  https://devnahian.com/about-me
  * Version:     1.0.0
- * Author:      Elementor Developer
- * Author URI:  https://developers.elementor.com/
- * Text Domain: elementor-oembed-widget
+ * Author:      Abdullah Nahian
+ * Author URI:  https://devnahian.com/about-me
+ * Text Domain: almashaansteel-elementor
  *
  * Requires Plugins: elementor
  * Elementor tested up to: 3.25.0
@@ -32,32 +32,23 @@ function register_oembed_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/almahsaan-breadcumb.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-counter.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-faqs.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-ongoing-projects.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-process.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-projects.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-section-title.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-services.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-banner.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-logos.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-contact1.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-mission-vision.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-products.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-image-faqs.php' );
 
 	$widgets_manager->register( new \Almahsaan_About_Widget() );
 	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
 	$widgets_manager->register( new \Almahsaan_Counter_Widget() );
 	$widgets_manager->register( new \Almahsaan_Faqs_Widget() );
-	$widgets_manager->register( new \Almahsaan_Ongoing_Projects_Widget() );
+	$widgets_manager->register( new \Almahsaan_Image_Faqs_Widget() );
 	$widgets_manager->register( new \Almahsaan_Process_Widget() );
 	$widgets_manager->register( new \Almahsaan_Projects_Widget() );
 	$widgets_manager->register( new \Almahsaan_Section_Title_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
-	$widgets_manager->register( new \Almahsaan_Contact1_Widget() );
 	$widgets_manager->register( new \Almahsaan_Gallery_Widget() );
-	$widgets_manager->register( new \Almahsaan_Products() );
-	$widgets_manager->register( new \Almahsaan_Image_Faqs_Widget() );
 
 }
 add_action( 'elementor/widgets/register', 'register_oembed_widget' );

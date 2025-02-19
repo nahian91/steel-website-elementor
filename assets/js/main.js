@@ -1,22 +1,30 @@
-jQuery(document).ready(function ($) {
-    // Initially open the first item
-    $('.custom-accordion .accordion-header').first().next('.accordion-content').slideDown();
-    $('.custom-accordion .accordion-header').first().find('.accordion-icon').text('-');
+(function ($) {
+    $(document).ready(function () {
+        function initFAQ() {
+            $('.faq-question').off('click').on('click', function () {
+                var answer = $(this).next('.faq-answer');
+                var icon = $(this).find('.faq-icon');
 
-    // Accordion click behavior
-    $('.custom-accordion .accordion-header').click(function () {
-        var $content = $(this).next('.accordion-content');
-        var $icon = $(this).find('.accordion-icon');
+                $('.faq-answer').not(answer).slideUp();
+                $('.faq-icon').not(icon).removeClass('fa-minus').addClass('fa-plus').css('transform', 'rotate(0deg)');
 
-        if ($content.is(':visible')) {
-            $content.slideUp();
-            $icon.text('+');
-        } else {
-            $('.accordion-content').slideUp();
-            $('.accordion-icon').text('+');
-            $content.slideDown();
-            $icon.text('-');
+                answer.slideToggle();
+                if (icon.hasClass('fa-plus')) {
+                    icon.removeClass('fa-plus').addClass('fa-minus').css('transform', 'rotate(180deg)');
+                } else {
+                    icon.removeClass('fa-minus').addClass('fa-plus').css('transform', 'rotate(0deg)');
+                }
+            });
         }
-    });
-});
 
+        // Run on page load
+        initFAQ();
+
+        // Run when Elementor updates preview
+        $(window).on('elementor/frontend/init', function () {
+            elementorFrontend.hooks.addAction('frontend/element_ready/faqs.default', function () {
+                initFAQ();
+            });
+        });
+    });
+})(jQuery);

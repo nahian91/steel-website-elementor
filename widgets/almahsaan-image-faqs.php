@@ -9,7 +9,7 @@ class Almahsaan_Image_Faqs_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_title() {
-        return __('Image Faqs', 'plugin-name');
+        return __('Image FAQs', 'plugin-name');
     }
 
     public function get_icon() {
@@ -24,36 +24,36 @@ class Almahsaan_Image_Faqs_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __('Accordion Items', 'plugin-name'),
+                'label' => __('FAQs', 'plugin-name'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
-            'accordion_items',
+            'faq_items',
             [
-                'label' => __('Items', 'plugin-name'),
+                'label' => __('FAQ Items', 'plugin-name'),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => [
+                    [
+                        'name' => 'image',
+                        'label' => __('Image', 'plugin-name'),
+                        'type' => \Elementor\Controls_Manager::MEDIA,
+                    ],
                     [
                         'name' => 'title',
                         'label' => __('Title', 'plugin-name'),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __('Accordion Title', 'plugin-name'),
+                        'default' => __('Image Title', 'plugin-name'),
                     ],
                     [
-                        'name' => 'content',
-                        'label' => __('Content', 'plugin-name'),
+                        'name' => 'description',
+                        'label' => __('Description', 'plugin-name'),
                         'type' => \Elementor\Controls_Manager::TEXTAREA,
-                        'default' => __('Accordion Content', 'plugin-name'),
+                        'default' => __('Lorem ipsum dolor sit amet...', 'plugin-name'),
                     ],
                 ],
-                'default' => [
-                    [
-                        'title' => __('First Item', 'plugin-name'),
-                        'content' => __('Content for the first item', 'plugin-name'),
-                    ],
-                ],
+                'title_field' => '{{{ title }}}',
             ]
         );
 
@@ -62,34 +62,96 @@ class Almahsaan_Image_Faqs_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-    ?>
-        <div class="custom-accordion">
-            <?php 
-                foreach ($settings['accordion_items'] as $index => $item) {
-                    ?>
-                <div class="accordion-item">
-                    <div class="accordion-header" data-index="' . $index . '">
-                        <h4><?php echo esc_html($item['title']);?> <span class="accordion-icon">+</span></h4>
+        if (empty($settings['faq_items'])) {
+            return;
+        }
+        ?>
+        <div class="image-accordion">
+            <?php foreach ($settings['faq_items'] as $index => $item): ?>
+                <?php 
+                    $is_active = $index === 0 ? 'active' : ''; 
+                    $img_url = isset($item['image']['url']) ? esc_url($item['image']['url']) : '';
+                ?>
+                <div class="single-image-accordion <?php echo $is_active; ?>">
+                    <div class="image-accordion-header">
+                        <img src="<?php echo $img_url; ?>" alt="<?php echo esc_attr($item['title']); ?>">
+                        <span class="accordion-toggle">+</span>
                     </div>
-                    <div class="accordion-content"><?php echo esc_html($item['content']);?></div>
+                    <div class="image-accordion-content" style="display: <?php echo $index === 0 ? 'block' : 'none'; ?>;">
+                        <h4><?php echo esc_html($item['title']); ?></h4>
+                        <p><?php echo esc_html($item['description']); ?></p>
+                    </div>
                 </div>
-                    <?php
-                }
-            ?>
+            <?php endforeach; ?>
         </div>
-    <?php    
-    }
 
-    public function get_script_depends() {
-        return ['custom-accordion-script'];
+        <style>
+            .image-accordion {
+                width: 100%;
+            }
+            .single-image-accordion {
+                border-bottom: 1px solid #ddd;
+                cursor: pointer;
+                padding: 10px;
+            }
+            .image-accordion-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .image-accordion-header img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+            .accordion-toggle {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .image-accordion-content {
+                display: none;
+                padding: 10px;
+                background: #f9f9f9;
+            }
+            .single-image-accordion.active .image-accordion-content {
+                display: block;
+            }
+            .single-image-accordion.active .accordion-toggle {
+                content: "-";
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let accordions = document.querySelectorAll(".single-image-accordion");
+                accordions.forEach((accordion, index) => {
+                    accordion.addEventListener("click", function() {
+                        accordions.forEach(acc => {
+                            if (acc !== accordion) {
+                                acc.classList.remove("active");
+                                acc.querySelector(".image-accordion-content").style.display = "none";
+                                acc.querySelector(".accordion-toggle").textContent = "+";
+                            }
+                        });
+
+                        let content = accordion.querySelector(".image-accordion-content");
+                        let toggle = accordion.querySelector(".accordion-toggle");
+                        
+                        if (accordion.classList.contains("active")) {
+                            accordion.classList.remove("active");
+                            content.style.display = "none";
+                            toggle.textContent = "+";
+                        } else {
+                            accordion.classList.add("active");
+                            content.style.display = "block";
+                            toggle.textContent = "-";
+                        }
+                    });
+                });
+            });
+        </script>
+        <?php
     }
 }
-
-add_action('elementor/widgets/widgets_registered', function($widgets_manager) {
-    $widgets_manager->register_widget_type(new Almahsaan_Faqs_Widget());
-});
-
-// Enqueue script
-add_action('wp_enqueue_scripts', function() {
-    wp_register_script('custom-accordion-script', plugins_url('assets/js/main.js', __FILE__), ['jquery'], false, true);
-});

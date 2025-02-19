@@ -181,8 +181,6 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 		<!-- "working-process area start -->
-		<section class="working-process">
-			<div class="container">
 				<div class="working-process__wrapper">
 					<?php 
 					// Check if the repeater field has any items
@@ -210,8 +208,6 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 					endif;
 					?>
 				</div>
-			</div>
-		</section>
 		<!-- "working-process area end -->
 		<?php
 	}	
