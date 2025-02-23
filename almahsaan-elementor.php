@@ -34,7 +34,6 @@ function register_oembed_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/almahsaan-faqs.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-process.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-projects.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-section-title.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-banner.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-image-faqs.php' );
@@ -46,7 +45,6 @@ function register_oembed_widget( $widgets_manager ) {
 	$widgets_manager->register( new \Almahsaan_Image_Faqs_Widget() );
 	$widgets_manager->register( new \Almahsaan_Process_Widget() );
 	$widgets_manager->register( new \Almahsaan_Projects_Widget() );
-	$widgets_manager->register( new \Almahsaan_Section_Title_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
 	$widgets_manager->register( new \Almahsaan_Gallery_Widget() );
 
@@ -70,6 +68,25 @@ function my_elementor_addon_enqueue_scripts() {
         '1.0.0',
         true // Load in footer
     );
+
+    wp_enqueue_style('owl-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', [], '2.3.4');
+    wp_enqueue_style('owl-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', [], '2.3.4');
+    wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', ['jquery'], '2.3.4', true);
 }
 add_action('wp_enqueue_scripts', 'my_elementor_addon_enqueue_scripts');
 
+/**
+ * Register a custom category for Elementor widgets.
+ *
+ * @param \Elementor\Elements_Manager $elements_manager Elementor elements manager.
+ */
+function register_almahsaan_elementor_category( $elements_manager ) {
+    $elements_manager->add_category(
+        'almahsaan-category',
+        [
+            'title' => __( 'Al Mashaan Steel', 'almashaansteel-elementor' ),
+            'icon'  => 'fa fa-plug',
+        ]
+    );
+}
+add_action( 'elementor/elements/categories_registered', 'register_almahsaan_elementor_category' );

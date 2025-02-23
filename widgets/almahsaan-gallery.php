@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor oEmbed Widget.
+ * Elementor Gallery Widget.
  *
- * Elementor widget that inserts an embbedable content into the page, from any given URL.
+ * Elementor widget that inserts an image gallery into the page.
  *
  * @since 1.0.0
  */
@@ -15,7 +15,7 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	/**
 	 * Get widget name.
 	 *
-	 * Retrieve oEmbed widget name.
+	 * Retrieve gallery widget name.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -28,7 +28,7 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	/**
 	 * Get widget title.
 	 *
-	 * Retrieve oEmbed widget title.
+	 * Retrieve gallery widget title.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -41,40 +41,40 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	/**
 	 * Get widget icon.
 	 *
-	 * Retrieve oEmbed widget icon.
+	 * Retrieve gallery widget icon.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return string Widget icon.
 	 */
 	public function get_icon(): string {
-		return 'eicon-code';
+		return 'eicon-gallery-grid';
 	}
 
 	/**
 	 * Get widget categories.
 	 *
-	 * Retrieve the list of categories the oEmbed widget belongs to.
+	 * Retrieve the list of categories the gallery widget belongs to.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return array Widget categories.
 	 */
 	public function get_categories(): array {
-		return [ 'basic' ];
+		return [ 'almahsaan-category' ];
 	}
 
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the oEmbed widget belongs to.
+	 * Retrieve the list of keywords the gallery widget belongs to.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords(): array {
-		return [ 'oembed', 'url', 'link' ];
+		return [ 'gallery', 'image', 'photo' ];
 	}
 
 	/**
@@ -117,7 +117,7 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * Register oEmbed widget controls.
+	 * Register gallery widget controls.
 	 *
 	 * Add input fields to allow the user to customize the widget settings.
 	 *
@@ -141,17 +141,6 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => [
 					[
-						'name' => 'gallery_type',
-						'label' => esc_html__( 'Select Type', 'textdomain' ),
-						'type' => \Elementor\Controls_Manager::SELECT,
-						'options' => [
-							'image' => esc_html__( 'Image', 'textdomain' ),
-							'video' => esc_html__( 'Video', 'textdomain' ),
-						],
-						'default' => 'image',
-						'label_block' => true,
-					],
-					[
 						'name' => 'gallery_img',
 						'label' => esc_html__( 'Image', 'textdomain' ),
 						'type' => \Elementor\Controls_Manager::MEDIA,
@@ -159,19 +148,6 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 							'url' => \Elementor\Utils::get_placeholder_image_src(),
 						],
 						'label_block' => true,
-						'condition' => [
-							'gallery_type' => 'image',
-						],
-					],
-					[
-						'name' => 'gallery_video',
-						'label' => esc_html__( 'Video URL', 'textdomain' ),
-						'type' => \Elementor\Controls_Manager::URL,
-						'placeholder' => esc_html__( 'https://your-video-url.com', 'textdomain' ),
-						'label_block' => true,
-						'condition' => [
-							'gallery_type' => 'video',
-						],
 					],
 					[
 						'name' => 'gallery_subtitle',
@@ -197,7 +173,7 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * Render oEmbed widget output on the frontend.
+	 * Render gallery widget output on the frontend.
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
@@ -206,64 +182,34 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
-		$gallery_list = $settings['gallery_list'];
-		?>
-        <div class="container">
-            <div class="row">
-				<?php
-					foreach($gallery_list as $gallery) {
-						$gallery_type = $gallery['gallery_type'];
-						$gallery_img = $gallery['gallery_img']['url'];
-						$gallery_video = $gallery['gallery_video']['url'];
-						$gallery_subtitle = $gallery['gallery_subtitle'];
-						$gallery_title = $gallery['gallery_title'];
-						?>
+		$gallery_list = $settings['gallery_list'] ?? [];
+
+		if (!empty($gallery_list) && is_array($gallery_list)) {
+			?>
+			<div class="container">
+				<div class="row">
+					<?php foreach ($gallery_list as $gallery): 
+						$gallery_img = $gallery['gallery_img']['url'] ?? '';
+						$gallery_subtitle = $gallery['gallery_subtitle'] ?? '';
+						$gallery_title = $gallery['gallery_title'] ?? ''; ?>
+						
 						<div class="col-md-4">
-							<div class="protfolio__item">
-								<?php if($gallery_type == 'image'){
-									?>
-										<div class="protfolio__item-media ">
-											<img src="<?php echo esc_url($gallery_img);?>" class="img-fluid" alt="<?php echo esc_html($gallery_title);?>">
-										</div>
-										<a href="<?php echo esc_url($gallery_img);?>" class="protfolio__item-icon popup-image">
-											<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-											<path d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-											</svg>
-										</a>
-									<?php
-								} else {
-									?>
-										<div class="protfolio__item-media ">
-										<?php
-// Assuming $youtube_url contains the full YouTube URL
-$youtube_url = 'https://www.youtube.com/watch?v=ScMzIvxBSi4';
+							<div class="almahsaan-image-hover">
+								<?php if (!empty($gallery_img)): ?>
+									<img src="<?php echo esc_url($gallery_img); ?>" alt="<?php echo esc_attr($gallery_title); ?>">
+								<?php endif; ?>
 
-// Extract the video ID from the URL
-preg_match('/(?:https?:\/\/)?(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)([a-zA-Z0-9_-]{11})/', $youtube_url, $matches);
-
-$youtube_video_id = isset($matches[1]) ? $matches[1] : ''; // The video ID
-?>
-
-<iframe width="100%" height="300" src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_video_id); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-										</div>
-										<a href="<?php echo esc_url($gallery_video);?>" class="protfolio__item-icon popup-video">
-											<svg id="playButton" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path class="line" d="M27 2V52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-												<path class="line" d="M2 27H52" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-											</svg>
-										</a>
-									<?php
-								} ?>
+								<div class="almahsaan-image-content">
+									<h4><?php echo esc_html($gallery_title); ?></h4>
+									<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
+								</div>
 							</div>
 						</div>    
-						<?php
-					}
-				?>                 
-            </div>
-        </div>
-		<?php
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<?php
+		}
 	}
 
 }

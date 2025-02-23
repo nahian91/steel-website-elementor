@@ -22,3 +22,54 @@
 .accordion-icon {
     font-weight: bold;
 }
+
+
+.almashaan-owl-carousel .owl-prev, .almashaan-owl-carousel .owl-next {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.almahsaan-image-hover {
+    position: relative;
+  }
+  .almahsaan-image-hover {
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  .almahsaan-image-hover img {
+    width: 100%;
+  }
+  .almahsaan-image-content {
+    position: absolute;
+    bottom: -130px;
+    background-color: #fff;
+    width: 100%;
+    padding: 20px;
+    transition: .3s;
+  }
+  .almahsaan-image-content h4 {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .almahsaan-image-content a {
+    display: block;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .almahsaan-image-content a i {
+    background-color: #d25c3c;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+  }
+  .almahsaan-image-hover:hover .almahsaan-image-content {
+    bottom: 0;
+  }

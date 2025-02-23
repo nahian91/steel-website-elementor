@@ -61,7 +61,7 @@ class Almahsaan_What_We_Do_Widget extends \Elementor\Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories(): array {
-		return [ 'basic' ];
+		return [ 'almahsaan-category' ];
 	}
 
 	/**

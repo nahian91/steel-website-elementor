@@ -13,11 +13,11 @@ class Almahsaan_Image_Faqs_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-accordion';
+        return 'eicon-image-roll';
     }
 
     public function get_categories() {
-        return ['basic'];
+        return ['almahsaan-category'];
     }
 
     protected function register_controls() {

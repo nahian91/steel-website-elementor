@@ -48,7 +48,7 @@ class Almahsaan_Projects_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon(): string {
-		return 'eicon-code';
+		return 'eicon-folder';
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Almahsaan_Projects_Widget extends \Elementor\Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories(): array {
-		return [ 'basic' ];
+		return [ 'almahsaan-category' ];
 	}
 
 	/**
