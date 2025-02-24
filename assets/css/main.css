@@ -1,3 +1,48 @@
+
+.faq-question {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.faq-answer {
+  display: none;
+  margin-top: 5px;
+}
+.faq-icon {
+  transition: transform 0.3s ease-in-out;
+}
+.faq-icon.fa-minus {
+  transform: rotate(180deg);
+}
+
+.faq-item {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ffc0af;
+}
+.faq-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.faq-question {
+  font-size: 24px;
+}
+.faq-answer {
+  font-size: 17px;
+  margin-top: 16px;
+}
+.faq-icon.fa-minus, .faq-icon.fa-plus {
+background-color: var(--primary-color);
+width: 40px;
+height: 40px;
+text-align: center;
+line-height: 40px;
+color: #fff;
+}
+
 .custom-accordion {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -256,4 +301,89 @@
 }
 .container .row .col-md-3:last-child .working-process__icon:after {
   display: none;
+}
+
+.almashaan-slider-content h4 {
+  font-size: 70px;
+  font-weight: 800;
+}
+.almashaan-slider-content p {
+  font-size: 18px;
+  line-height: 27px;
+  margin: 25px 0;
+}
+.almashaan-slider-list {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.almashaan-slider-list span img {
+  max-width: 40px;
+}
+.almashaan-slider-list span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.almashaan-slider-content a {
+  display: inline-block;
+  background-color: #d25c3c;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 9px;
+  padding: 10px 30px;
+  margin-top: 35px;
+}
+
+#almashaanBanner {
+  position: relative;
+}
+
+#almashaanBanner .carousel-control-prev,
+#almashaanBanner .carousel-control-next {
+  position: absolute;
+  bottom: -100px; /* Adjust the distance from the bottom */
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px; /* Adjust width if needed */
+  height: 40px; /* Adjust height if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Background color for visibility */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#almashaanBanner .carousel-control-prev {
+  left: calc(50% - 30px); /* Positioning left arrow */
+}
+
+#almashaanBanner .carousel-control-next {
+  left: calc(50% + 30px); /* Positioning right arrow */
+}
+
+#almashaanBanner .carousel-control-prev-icon,
+#almashaanBanner .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+#almashaanProjectsLider .carousel-control-prev, #almashaanProjectsLider .carousel-control-next {
+	position: absolute;
+	top: -70px;
+	right: 10px;
+	left: auto;
+	width: auto;
+	background: #333;
+	padding: 10px;
+	border-radius: 5px;
+	height: 50px;
+	opacity: 1;
+}
+
+#almashaanProjectsLider .carousel-control-prev {
+    right: 50px; /* Space between next and previous button */
 }

@@ -123,13 +123,13 @@ class Almahsaan_Projects_Slider_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'gallery_list',
+			'projects_slider_list',
 			[
-				'label' => esc_html__( 'Gallery List', 'textdomain' ),
+				'label' => esc_html__( 'Projects Slider List', 'textdomain' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => [
 					[
-						'name' => 'gallery_img',
+						'name' => 'projects_slider_img',
 						'label' => esc_html__( 'Image', 'textdomain' ),
 						'type' => \Elementor\Controls_Manager::MEDIA,
 						'default' => [
@@ -138,20 +138,20 @@ class Almahsaan_Projects_Slider_Widget extends \Elementor\Widget_Base {
 						'label_block' => true,
 					],
 					[
-						'name' => 'gallery_title',
-						'label' => esc_html__( 'Gallery Title', 'textdomain' ),
+						'name' => 'projects_slider_title',
+						'label' => esc_html__( 'Projects Slider Title', 'textdomain' ),
 						'type' => \Elementor\Controls_Manager::TEXT,
-						'default' => esc_html__( 'Gallery Title', 'textdomain' ),
+						'default' => esc_html__( 'Projects Slider Title', 'textdomain' ),
 						'label_block' => true,
 					],
 					[
-						'name' => 'gallery_url',
-						'label' => esc_html__( 'Gallery URL', 'textdomain' ),
+						'name' => 'projects_slider_url',
+						'label' => esc_html__( 'Projects Slider URL', 'textdomain' ),
 						'type' => \Elementor\Controls_Manager::URL,
 						'label_block' => true,
 					]
 				],
-				'title_field' => '{{{ gallery_title }}}',
+				'title_field' => '{{{ projects_slider_title }}}',
 			]
 		);			
 
@@ -161,99 +161,60 @@ class Almahsaan_Projects_Slider_Widget extends \Elementor\Widget_Base {
 	
     protected function render() {
 		$settings = $this->get_settings_for_display();
+		$projects_slider_list = $settings['projects_slider_list'];
+		$chunks = array_chunk($projects_slider_list, 3); // Split into groups of 4
 	
 		?>
-<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row">
-	  <div class="col-md-4">
-							<div class="almahsaan-image-hover">
-								<?php if (!empty($gallery_img)): ?>
-									<img src="<?php echo esc_url($gallery_img); ?>" alt="<?php echo esc_attr($gallery_title); ?>">
-								<?php endif; ?>
-
-								<div class="almahsaan-image-content">
-									<h4><?php echo esc_html($gallery_title); ?></h4>
-									<?php 
-										if($gallery_url) {
-											?>
-												<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
-											<?php 
-										}
-									?>
-									
+		<div class="row align-items-center">
+			<div class="col-md-9">
+				<div class="project-slider-heading">
+					<h4>EXPLORE OUR <br>COMPLETED PROJECTS</h4>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="project-slider-top-link">
+					<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
+				</div>
+			</div>
+		</div>
+		<div id="almashaanProjectsLider" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<?php foreach ($chunks as $index => $chunk) : ?>
+					<div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+						<div class="row">
+							<?php foreach ($chunk as $project) : ?>
+								<div class="col-md-4"> <!-- 4 columns per slide -->
+									<div class="almahsaan-image-hover">
+										<?php if (!empty($project['projects_slider_img']['url'])) : ?>
+											<img src="<?php echo esc_url($project['projects_slider_img']['url']); ?>" alt="<?php echo esc_attr($project['projects_slider_title']); ?>">
+										<?php endif; ?>
+	
+										<div class="almahsaan-image-content">
+											<h4><?php echo esc_html($project['projects_slider_title']); ?></h4>
+											<?php if (!empty($project['projects_slider_url']['url'])) : ?>
+												<a href="<?php echo esc_url($project['projects_slider_url']['url']); ?>">
+													<?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i>
+												</a>
+											<?php endif; ?>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>    
-						<div class="col-md-4">
-							<div class="almahsaan-image-hover">
-								<?php if (!empty($gallery_img)): ?>
-									<img src="<?php echo esc_url($gallery_img); ?>" alt="<?php echo esc_attr($gallery_title); ?>">
-								<?php endif; ?>
-
-								<div class="almahsaan-image-content">
-									<h4><?php echo esc_html($gallery_title); ?></h4>
-									<?php 
-										if($gallery_url) {
-											?>
-												<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
-											<?php 
-										}
-									?>
-									
-								</div>
-							</div>
-						</div>    
-						<div class="col-md-4">
-							<div class="almahsaan-image-hover">
-								<?php if (!empty($gallery_img)): ?>
-									<img src="<?php echo esc_url($gallery_img); ?>" alt="<?php echo esc_attr($gallery_title); ?>">
-								<?php endif; ?>
-
-								<div class="almahsaan-image-content">
-									<h4><?php echo esc_html($gallery_title); ?></h4>
-									<?php 
-										if($gallery_url) {
-											?>
-												<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
-											<?php 
-										}
-									?>
-									
-								</div>
-							</div>
-						</div>    
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="row">
-        <!-- Image Column -->
-        <div class="col-md-6">
-          <img src="https://via.placeholder.com/600x400" class="d-block w-100" alt="...">
-        </div>
-        <!-- Content Column -->
-        <div class="col-md-6">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Another Title</h5>
-            <p>Another description about this content.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Add more carousel items as needed -->
-  </div>
-  <!-- Carousel Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
+							<?php endforeach; ?>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+	
+			<!-- Carousel Controls -->
+			<button class="carousel-control-prev" type="button" data-bs-target="#almashaanProjectsLider" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#almashaanProjectsLider" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
 		<?php
 	}	
 }

@@ -135,14 +135,49 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'url',
+			'banners_list',
 			[
-				'label' => esc_html__( 'URL to embed', 'elementor-oembed-widget' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'input_type' => 'url',
-				'placeholder' => esc_html__( 'https://your-link.com', 'elementor-oembed-widget' ),
+				'label' => esc_html__( 'Banners List', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::REPEATER,
+				'fields' => [
+					[
+						'name' => 'banner_img',
+						'label' => esc_html__( 'Image', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::MEDIA,
+						'default' => [
+							'url' => \Elementor\Utils::get_placeholder_image_src(),
+						],
+						'label_block' => true,
+					],
+					[
+						'name' => 'banner_title',
+						'label' => esc_html__( 'Gallery Title', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::TEXT,
+						'default' => esc_html__( 'Gallery Title', 'textdomain' ),
+						'label_block' => true,
+					],
+					[
+						'name' => 'banner_desc',
+						'label' => esc_html__( 'Gallery Description', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::TEXTAREA,
+						'label_block' => true,
+					],
+					[
+						'name' => 'banner_features',
+						'label' => esc_html__( 'Gallery Features', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::WYSIWYG,
+						'label_block' => true,
+					],
+					[
+						'name' => 'banner_url',
+						'label' => esc_html__( 'Gallery URL', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::URL,
+						'label_block' => true,
+					]
+				],
+				'title_field' => '{{{ banner_title }}}',
 			]
-		);
+		);			
 
 		$this->end_controls_section();
 
@@ -158,62 +193,51 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
+		$banners_list = $settings['banners_list'];
 		?>
         <div class="container">
-		<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+			<div id="almashaanBanner" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<div class="row align-items-center">
-						<!-- Content Column -->
-						<div class="col-md-7">
-							<div class="almashaan-slider-content">
-								<h4>STAINLESS STEEL	BOLLARD</h4>
-								<p>Leo site ultrices donec a volutpat penatibus mind suscipit aucibus and duis pharetra name sociosqu phasellus nunce accumsan</p>
-								<div class="almashaan-slider-list">
-									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
-									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
-									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
-								</div>
-								<a href="">learn more</a>
-							</div>
-						</div>
-						<!-- Image Column -->
-						<div class="col-md-5">
-							<img src="http://steel-wp.local/wp-content/uploads/2025/02/projects-4.jpg" class="d-block w-100" alt="...">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="row align-items-center">
-						<!-- Content Column -->
-						<div class="col-md-7">
-						<div class="almashaan-slider-content">
-								<h4>STAINLESS STEEL	BOLLARD</h4>
-								<p>Leo site ultrices donec a volutpat penatibus mind suscipit aucibus and duis pharetra name sociosqu phasellus nunce accumsan</p>
-								<div class="almashaan-slider-list">
-									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
-									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
-									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
-								</div>
-								<a href="">learn more</a>
-							</div>
-						</div>
-						<!-- Image Column -->
-						<div class="col-md-5">
-							<img src="http://steel-wp.local/wp-content/uploads/2025/02/projects-4.jpg" class="d-block w-100" alt="...">
-						</div>
-					</div>
-				</div>
-				<!-- Add more carousel items as needed -->
-			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
+    <?php 
+        $first_item = true; // Flag to check the first item
+        foreach($banners_list as $list) {
+            $banner_img = $list['banner_img']['url'];
+            $banner_title = $list['banner_title'];
+            $banner_desc = $list['banner_desc'];
+            $banner_features = $list['banner_features'];
+            $banner_url = $list['banner_url'];
+            ?>
+            <div class="carousel-item <?php echo $first_item ? 'active' : ''; ?>">
+                <div class="row align-items-center">
+                    <!-- Content Column -->
+                    <div class="col-md-7">
+                        <div class="almashaan-slider-content">
+                            <h4><?php echo $banner_title;?></h4>
+                            <p><?php echo $banner_desc;?></p>
+                            <?php echo $banner_features;?>
+                            <a href="<?php echo $banner_url;?>">learn more</a>
+                        </div>
+                    </div>
+                    <!-- Image Column -->
+                    <div class="col-md-5">
+                        <img src="<?php echo $banner_img;?>" class="d-block w-100" alt="<?php echo $banner_title;?>">
+                    </div>
+                </div>
+            </div>
+            <?php 
+            $first_item = false; // Set flag to false after first iteration
+        }
+    ?>
+</div>
+
+				<button class="carousel-control-prev" type="button" data-bs-target="#almashaanBanner" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#almashaanBanner" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
 			</div>
 		</div>
 		<?php

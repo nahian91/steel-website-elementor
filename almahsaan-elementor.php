@@ -35,13 +35,11 @@ function register_oembed_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/almahsaan-projects.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-banner.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-image-faqs.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-projects-slider.php' );
 
 	$widgets_manager->register( new \Almahsaan_Image_Box_Widget() );
 	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
 	$widgets_manager->register( new \Almahsaan_Faqs_Widget() );
-	$widgets_manager->register( new \Almahsaan_Image_Faqs_Widget() );
 	$widgets_manager->register( new \Almahsaan_Process_Widget() );
 	$widgets_manager->register( new \Almahsaan_Projects_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
