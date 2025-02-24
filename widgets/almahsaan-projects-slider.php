@@ -4,57 +4,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor Gallery Widget.
+ * Elementor oEmbed Widget.
  *
- * Elementor widget that inserts an image gallery into the page.
+ * Elementor widget that inserts an embbedable content into the page, from any given URL.
  *
  * @since 1.0.0
  */
-class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
+class Almahsaan_Projects_Slider_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
 	 *
-	 * Retrieve gallery widget name.
+	 * Retrieve oEmbed widget name.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return string Widget name.
 	 */
 	public function get_name(): string {
-		return 'alsteel_gallery';
+		return 'projects-slider';
 	}
 
 	/**
 	 * Get widget title.
 	 *
-	 * Retrieve gallery widget title.
+	 * Retrieve oEmbed widget title.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return string Widget title.
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Gallery', 'elementor-oembed-widget' );
+		return esc_html__( 'Projects Slider', 'elementor-oembed-widget' );
 	}
 
 	/**
 	 * Get widget icon.
 	 *
-	 * Retrieve gallery widget icon.
+	 * Retrieve oEmbed widget icon.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return string Widget icon.
 	 */
 	public function get_icon(): string {
-		return 'eicon-gallery-grid';
+		return 'eicon-folder';
 	}
 
 	/**
 	 * Get widget categories.
 	 *
-	 * Retrieve the list of categories the gallery widget belongs to.
+	 * Retrieve the list of categories the oEmbed widget belongs to.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -67,14 +67,14 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	/**
 	 * Get widget keywords.
 	 *
-	 * Retrieve the list of keywords the gallery widget belongs to.
+	 * Retrieve the list of keywords the oEmbed widget belongs to.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords(): array {
-		return [ 'gallery', 'image', 'photo' ];
+		return [ 'oembed', 'url', 'link' ];
 	}
 
 	/**
@@ -111,18 +111,6 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 * @return bool Whether to cache the element output.
-	 */
-	protected function is_dynamic_content(): bool {
-		return false;
-	}
-
-	/**
-	 * Register gallery widget controls.
-	 *
-	 * Add input fields to allow the user to customize the widget settings.
-	 *
-	 * @since 1.0.0
-	 * @access protected
 	 */
 	protected function register_controls(): void {
 
@@ -170,29 +158,34 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 		$this->end_controls_section();
 
 	}
-
-	/**
-	 * Render gallery widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
-	protected function render(): void {
+	
+    protected function render() {
 		$settings = $this->get_settings_for_display();
-		$gallery_list = $settings['gallery_list'] ?? [];
+	
+		?>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row">
+	  <div class="col-md-4">
+							<div class="almahsaan-image-hover">
+								<?php if (!empty($gallery_img)): ?>
+									<img src="<?php echo esc_url($gallery_img); ?>" alt="<?php echo esc_attr($gallery_title); ?>">
+								<?php endif; ?>
 
-		if (!empty($gallery_list) && is_array($gallery_list)) {
-			?>
-			<div class="container">
-				<div class="row">
-					<?php foreach ($gallery_list as $gallery): 
-						$gallery_img = $gallery['gallery_img']['url'] ?? '';
-						$gallery_title = $gallery['gallery_title'] ?? ''; 
-						$gallery_url = $gallery['gallery_url']['url'] ?? ''; 
-					?>
-						
+								<div class="almahsaan-image-content">
+									<h4><?php echo esc_html($gallery_title); ?></h4>
+									<?php 
+										if($gallery_url) {
+											?>
+												<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
+											<?php 
+										}
+									?>
+									
+								</div>
+							</div>
+						</div>    
 						<div class="col-md-4">
 							<div class="almahsaan-image-hover">
 								<?php if (!empty($gallery_img)): ?>
@@ -212,11 +205,55 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 								</div>
 							</div>
 						</div>    
-					<?php endforeach; ?>
-				</div>
-			</div>
-			<?php
-		}
-	}
+						<div class="col-md-4">
+							<div class="almahsaan-image-hover">
+								<?php if (!empty($gallery_img)): ?>
+									<img src="<?php echo esc_url($gallery_img); ?>" alt="<?php echo esc_attr($gallery_title); ?>">
+								<?php endif; ?>
 
+								<div class="almahsaan-image-content">
+									<h4><?php echo esc_html($gallery_title); ?></h4>
+									<?php 
+										if($gallery_url) {
+											?>
+												<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
+											<?php 
+										}
+									?>
+									
+								</div>
+							</div>
+						</div>    
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row">
+        <!-- Image Column -->
+        <div class="col-md-6">
+          <img src="https://via.placeholder.com/600x400" class="d-block w-100" alt="...">
+        </div>
+        <!-- Content Column -->
+        <div class="col-md-6">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Another Title</h5>
+            <p>Another description about this content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add more carousel items as needed -->
+  </div>
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+		<?php
+	}	
 }

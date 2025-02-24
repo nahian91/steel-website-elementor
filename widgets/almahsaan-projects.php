@@ -112,333 +112,120 @@ class Almahsaan_Projects_Widget extends \Elementor\Widget_Base {
 	 * @access protected
 	 * @return bool Whether to cache the element output.
 	 */
-	protected function is_dynamic_content(): bool {
-		return false;
-	}
-
-	/**
-	 * Register oEmbed widget controls.
-	 *
-	 * Add input fields to allow the user to customize the widget settings.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
 	protected function _register_controls() {
-        $this->start_controls_section(
-            'content_section',
-            [
-                'label' => __('Product List', 'plugin-name'),
-                'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $repeater = new \Elementor\Repeater();
-
-        $repeater->add_control(
-            'product_title',
-            [
-                'label'       => __('Product Title', 'plugin-name'),
-                'type'        => \Elementor\Controls_Manager::TEXT,
-                'label_block' => true,
-            ]
-        );
-
-        $repeater->add_control(
-            'product_price',
-            [
-                'label' => __('Product Price', 'plugin-name'),
-                'type'  => \Elementor\Controls_Manager::TEXT,
-            ]
-        );
-
-        $repeater->add_control(
-            'product_category',
-            [
-                'label'   => __('Product Category', 'plugin-name'),
-                'type'    => \Elementor\Controls_Manager::TEXT,
-                'default' => 'General',
-            ]
-        );
-
-        $repeater->add_control(
-            'product_image',
-            [
-                'label' => __('Product Image', 'plugin-name'),
-                'type'  => \Elementor\Controls_Manager::MEDIA,
-            ]
-        );
-
-        $this->add_control(
-            'products',
-            [
-                'label'       => __('Products', 'plugin-name'),
-                'type'        => \Elementor\Controls_Manager::REPEATER,
-                'fields'      => $repeater->get_controls(),
-                'title_field' => '{{{ product_title }}}',
-            ]
-        );
-
-        $this->end_controls_section();
-    }
-
-	/**
-     * Function to get categories dynamically
-     *
-     * Fetches all categories and returns them for use in the widget controls
-     * 
-     * @return array $category_options
-     */
-    public function fetch_project_categories() {
-		// Change 'project_category' to your custom taxonomy slug
-		$terms = get_terms([
-			'taxonomy' => 'project', // Replace with your custom taxonomy name
-			'hide_empty' => false, // Set to true if you want only categories with posts
-		]);
+		$this->start_controls_section(
+			'gallery_section',
+			[
+				'label' => __( 'Gallery', 'plugin-name' ),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
 	
-		$category_options = [];
-		
-		// Loop through each term and add to options array
-		foreach ( $terms as $term ) {
-			$category_options[$term->term_id] = $term->name; // Using term_id as the option value
-		}
+		// Add a repeater field for gallery items
+		$repeater = new \Elementor\Repeater();
 	
-		return $category_options;
+		$repeater->add_control(
+			'image',
+			[
+				'label' => __( 'Image', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+			]
+		);
+	
+		$repeater->add_control(
+			'category',
+			[
+				'label' => __( 'Category', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '',
+				'description' => 'Category for filtering',
+			]
+		);
+	
+		// Add the title field
+		$repeater->add_control(
+			'title',
+			[
+				'label' => __( 'Title', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '',
+				'description' => 'Title for the image',
+			]
+		);
+	
+		// Add the link field
+		$repeater->add_control(
+			'link',
+			[
+				'label' => __( 'Link', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::URL,
+				'default' => [
+					'url' => '',
+				],
+				'description' => 'Link for the image',
+			]
+		);
+	
+		// Add the repeater control
+		$this->add_control(
+			'gallery_items',
+			[
+				'label' => __( 'Gallery Items', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'image' => ['url' => ''],
+						'category' => 'Nature',
+						'title' => 'Sample Image',
+						'link' => ['url' => ''],
+					],
+				],
+				'title_field' => '{{{ title }}}',
+			]
+		);
+	
+		$this->end_controls_section();
 	}
-
-	/**
-	 * Render oEmbed widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
-	protected function render(): void {
+	
+    protected function render() {
 		$settings = $this->get_settings_for_display();
+		$gallery_items = $settings['gallery_items'];
 	
-		?>
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12">
-
-			<ul class="filters text-center">
-				<li class="active" data-filter="*">
-					<a href="#!"><i class="fas fa-star-of-life"></i> All</a>
-				</li>
-				<li data-filter=".desktop">
-					<a href="#!"><i class="fas fa-laptop-code"></i> Desktop</a>
-				</li>
-				<li data-filter=".Web">
-					<a href="#!"><i class="fas fa-globe"></i> Web</a>
-				</li>
-				<li data-filter=".design">
-					<a href="#!"><i class="far fa-object-group"></i> Design</a>
-				</li>
-			</ul>
-
-			<div class="projects">
-				<div class="row">
-					<div class="col-lg-4 item desktop CSharp">
-						<div class="project">
-							<div class="project-head">
-								<img src="https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_960_720.png" alt="" class="img-fluid card-img">
-								<div class="project-overlay">
-									<h4>Encryption Translator</h4>
-								</div>
-								<div class="project-hover">
-									<p>
-										This text does not contain any purpose other than
-										filling the design.
-									</p>
-								</div>
-							</div>
-
-							<div class="project-body text-center">
-								<h3 class="title">Encryption Translator</h3>
-
-								<ul class="filters filters-tag text-center">
-									tag:
-									<li data-filter=".CSharp"><a href="#!">C#</a></li>
-								</ul>
-
-								<div class="btn-group" role="group">
-									<a href="#!" class="btn project-btn"><i class="fas fa-file-download"></i> Download</a>
-									<a href="#!" class="btn project-btn disabled"><i class="far fa-eye-slash"></i> View</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-4 item Web html css jquery">
-						<div class="project">
-							<div class="project-head">
-								<img src="https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_960_720.png" alt="" class="img-fluid card-img">
-								<div class="project-overlay">
-									<h2>Web</h2>
-								</div>
-								<div class="project-hover">
-									<p>
-										This text does not contain any purpose other than
-										filling the design.
-									</p>
-								</div>
-							</div>
-
-							<div class="project-body text-center">
-								<h3 class="title">Web</h3>
-
-								<ul class="filters filters-tag text-center">
-									tag:
-									<li data-filter=".html"><a href="#!">HTML</a></li>
-									<li data-filter=".css"><a href="#!">CSS</a></li>
-									<li data-filter=".jquery"><a href="#!">jQuery</a></li>
-								</ul>
-
-								<div class="btn-group" role="group">
-									<a href="#!" class="btn  project-btn"><i class="fas fa-code"></i> Code</a>
-									<a href="#!" class="btn  project-btn"><i class="far fa-eye"></i> View</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-4 item design psd">
-						<div class="project">
-							<div class="project-head">
-								<img src="https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_960_720.png" alt="" class="img-fluid card-img">
-								<div class="project-overlay">
-									<h2>design</h2>
-								</div>
-								<div class="project-hover">
-									<p>
-										This text does not contain any purpose other than
-										filling the design.
-									</p>
-								</div>
-							</div>
-
-							<div class="project-body text-center">
-								<h3 class="title">design</h3>
-
-								<ul class="filters filters-tag text-center">
-									tag:
-									<li data-filter=".psd"><a href="#!">PSD</a></li>
-								</ul>
-
-								<div class="btn-group" role="group">
-									<a href="#!" class="btn  project-btn"><i class="fas fa-code"></i> Code</a>
-									<a href="#!" class="btn  project-btn"><i class="far fa-eye"></i> View</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-4 item Web html css javascript">
-						<div class="project">
-							<div class="project-head">
-								<img src="https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_960_720.png" alt="" class="img-fluid card-img">
-								<div class="project-overlay">
-									<h2>Web</h2>
-								</div>
-								<div class="project-hover">
-									<p>
-										This text does not contain any purpose other than
-										filling the design.
-									</p>
-								</div>
-							</div>
-
-							<div class="project-body text-center">
-								<h3 class="title">Web</h3>
-
-								<ul class="filters filters-tag text-center">
-									tag:
-									<li data-filter=".html"><a href="#!">HTML</a></li>
-									<li data-filter=".css"><a href="#!">CSS</a></li>
-									<li data-filter=".javascript">
-										<a href="#!">JavaScript</a>
-									</li>
-								</ul>
-
-								<div class="btn-group" role="group">
-									<a href="#!" class="btn  project-btn"><i class="fas fa-code"></i> Code</a>
-									<a href="#!" class="btn  project-btn"><i class="far fa-eye"></i> View</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-4 item design psd">
-						<div class="project">
-							<div class="project-head">
-								<img src="https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_960_720.png" alt="" class="img-fluid card-img">
-								<div class="project-overlay">
-									<h2>design</h2>
-								</div>
-								<div class="project-hover">
-									<p>
-										This text does not contain any purpose other than
-										filling the design.
-									</p>
-								</div>
-							</div>
-
-							<div class="project-body text-center">
-								<h3 class="title">design</h3>
-
-								<ul class="filters filters-tag text-center">
-									tag:
-									<li data-filter=".psd"><a href="#!">PSD</a></li>
-								</ul>
-
-								<div class="btn-group" role="group">
-									<a href="#!" class="btn  project-btn"><i class="fas fa-code"></i> Code</a>
-									<a href="#!" class="btn  project-btn"><i class="far fa-eye"></i> View</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-4 item Web html css javascript">
-						<div class="project">
-							<div class="project-head">
-								<img src="https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_960_720.png" alt="" class="img-fluid card-img">
-								<div class="project-overlay">
-									<h2>Web</h2>
-								</div>
-								<div class="project-hover">
-									<p>
-										This text does not contain any purpose other than
-										filling the design.
-									</p>
-								</div>
-							</div>
-
-							<div class="project-body text-center">
-								<h3 class="title">Web</h3>
-
-								<ul class="filters filters-tag text-center">
-									tag:
-									<li data-filter=".html"><a href="#!">HTML</a></li>
-									<li data-filter=".css"><a href="#!">CSS</a></li>
-									<li data-filter=".javascript">
-										<a href="#!">JavaScript</a>
-									</li>
-								</ul>
-
-								<div class="btn-group" role="group">
-									<a href="#!" class="btn  project-btn"><i class="fas fa-code"></i> Code</a>
-									<a href="#!" class="btn  project-btn"><i class="far fa-eye"></i> View</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-		<?php
-	}
-}	
+		echo '<div class="filterable-gallery">';
+		echo '<div class="filters">';
+		$categories = array_unique(array_column($gallery_items, 'category')); // Extract unique categories for filtering
+		foreach ($categories as $category) {
+			echo '<button class="filter-btn" data-filter="' . esc_attr($category) . '">' . esc_html($category) . '</button>';
+		}
+		echo '</div>'; // end filters section
+	
+		echo '<div class="gallery-items">';
+		foreach ( $gallery_items as $item ) {
+			$image_url = esc_url($item['image']['url']);
+			$category = esc_attr($item['category']);
+			$title = esc_html($item['title']);
+			$link = isset($item['link']['url']) ? esc_url($item['link']['url']) : '';
+	
+			echo '<div class="gallery-item ' . esc_attr( $category ) . '">';
+			
+			if ($link) {
+				echo '<a href="' . $link . '" class="gallery-item-link">';
+			}
+	
+			echo '<img src="' . $image_url . '" alt="' . $title . '">';
+			
+			if ($link) {
+				echo '</a>';
+			}
+	
+			if ($title) {
+				echo '<h3 class="gallery-item-title">' . $title . '</h3>';
+			}
+	
+			echo '</div>';
+		}
+		echo '</div>'; // end gallery items
+		echo '</div>'; // end filterable gallery
+	}	
+}

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
+class Almahsaan_Image_Box_Widget extends \Elementor\Widget_Base {
 
 	/**
 	 * Get widget name.
@@ -22,7 +22,7 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name(): string {
-		return 'process';
+		return 'about';
 	}
 
 	/**
@@ -35,7 +35,7 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title(): string {
-		return esc_html__( 'Process', 'elementor-oembed-widget' );
+		return esc_html__( 'Image Box', 'elementor-oembed-widget' );
 	}
 
 	/**
@@ -48,7 +48,7 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon(): string {
-		return 'eicon-cog';
+		return 'eicon-user-circle-o';
 	}
 
 	/**
@@ -135,13 +135,13 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'process_list',
+			'images_box_list',
 			[
-				'label' => esc_html__( 'Process List', 'textdomain' ),
+				'label' => esc_html__( 'Images Box List', 'textdomain' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => [
 					[
-						'name' => 'process_image',
+						'name' => 'images_box_img',
 						'label' => esc_html__( 'Image', 'textdomain' ),
 						'type' => \Elementor\Controls_Manager::MEDIA,
 						'default' => [
@@ -150,20 +150,28 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 						'label_block' => true,
 					],
 					[
-						'name' => 'process_title',
+						'name' => 'images_box_title',
 						'label' => esc_html__( 'Title', 'textdomain' ),
 						'type' => \Elementor\Controls_Manager::TEXT,
+						'default' => esc_html__( 'Gallery Title', 'textdomain' ),
 						'label_block' => true,
 					],
 					[
-						'name' => 'process_description',
+						'name' => 'images_box_desc',
 						'label' => esc_html__( 'Description', 'textdomain' ),
 						'type' => \Elementor\Controls_Manager::TEXTAREA,
 						'label_block' => true,
+					],
+					[
+						'name' => 'images_box_url',
+						'label' => esc_html__( 'URL', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::URL,
+						'label_block' => true,
 					]
-				]
+				],
+				'title_field' => '{{{ images_box_title }}}',
 			]
-		);
+		);			
 
 		$this->end_controls_section();
 
@@ -179,40 +187,31 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
+		$images_box_list = $settings['images_box_list'];
 		?>
-		<!-- "working-process area start -->
-				<div class="container">
-				<div class="row">
-					<?php 
-					// Check if the repeater field has any items
-					if ( ! empty( $settings['process_list'] ) ) :
-						$counter = 1;
-						foreach ( $settings['process_list'] as $process ) : ?>
-							<div class="col-md-3">
-							<div class="working-process__item">
-								<div class="working-process__icon">
-									<img src="<?php echo esc_url( $process['process_image']['url'] ); ?>" alt="">
-									<span class="number"><?php echo esc_html( sprintf( '%02d', $counter ) ); ?></span>
-								</div>
-	
-								<div class="working-process__text text-center">
-									<?php if ( ! empty( $process['process_title'] ) ) : ?>
-										<h6 class="title-animation"><?php echo esc_html( $process['process_title'] ); ?></h6>
-									<?php endif; ?>
-									<?php if ( ! empty( $process['process_description'] ) ) : ?>
-										<p class="mb-0"><?php echo esc_html( $process['process_description'] ); ?></p>
-									<?php endif; ?>
-								</div>
+		<div class="container">
+			<div class="row">	
+				<?php 
+					foreach($images_box_list as $list) {
+						$images_box_img = $list['images_box_img']['url'];
+						$images_box_title = $list['images_box_title'];
+						$images_box_desc = $list['images_box_desc'];
+						$images_box_url = $list['images_box_url']['url'];
+						?>
+						<div class="col-md-3">
+							<div class="single-image-box">
+								<a href="<?php echo $images_box_url;?>"><i class="fa-solid fa-arrow-right-long"></i></a>
+								<img src="<?php echo $images_box_img;?>" alt="">
+								<h4><?php echo $images_box_title;?></h4>
+								<p><?php echo $images_box_desc;?></p>
 							</div>
-							</div>
+						</div>		
 						<?php
-							$counter++; // Increment the counter for the next service
-						endforeach;
-					endif;
-					?>
-				</div>
-				</div>
-		<!-- "working-process area end -->
+					}
+				?>		
+			</div>
+		</div>
 		<?php
-	}	
+	}
+
 }

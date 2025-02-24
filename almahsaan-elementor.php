@@ -28,25 +28,25 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function register_oembed_widget( $widgets_manager ) {
 
-	require_once( __DIR__ . '/widgets/almahsaan-about.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-image-box.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-breadcumb.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-counter.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-faqs.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-process.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-projects.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-banner.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-image-faqs.php' );
+	require_once( __DIR__ . '/widgets/almahsaan-projects-slider.php' );
 
-	$widgets_manager->register( new \Almahsaan_About_Widget() );
+	$widgets_manager->register( new \Almahsaan_Image_Box_Widget() );
 	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
-	$widgets_manager->register( new \Almahsaan_Counter_Widget() );
 	$widgets_manager->register( new \Almahsaan_Faqs_Widget() );
 	$widgets_manager->register( new \Almahsaan_Image_Faqs_Widget() );
 	$widgets_manager->register( new \Almahsaan_Process_Widget() );
 	$widgets_manager->register( new \Almahsaan_Projects_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
 	$widgets_manager->register( new \Almahsaan_Gallery_Widget() );
+	$widgets_manager->register( new \Almahsaan_Projects_Slider_Widget() );
 
 }
 add_action( 'elementor/widgets/register', 'register_oembed_widget' );
@@ -72,6 +72,7 @@ function my_elementor_addon_enqueue_scripts() {
     wp_enqueue_style('owl-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', [], '2.3.4');
     wp_enqueue_style('owl-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', [], '2.3.4');
     wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', ['jquery'], '2.3.4', true);
+    wp_enqueue_script('mixitup-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js', ['jquery'], '2.3.4', true);
 }
 add_action('wp_enqueue_scripts', 'my_elementor_addon_enqueue_scripts');
 

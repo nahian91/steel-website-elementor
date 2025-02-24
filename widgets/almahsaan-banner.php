@@ -159,62 +159,63 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 		?>
-                    <div class="almashaan-owl-carousel owl-carousel">
-                        <div class="almashaan-item">
-                            <div class="container">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="almashaan-content">
-                                        <h1>stainless steel boland</h1>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum recusandae sit quae. Dignissimos, harum dolore.</p>
-                                        <a href="">Learn More</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="almashaan-img">
-
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="almashaan-item">
-                        <div class="container">
-                        <div class="row">
-                                <div class="col-md-7">
-                                    <div class="almashaan-content">
-                                        <h1>stainless steel boland</h1>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum recusandae sit quae. Dignissimos, harum dolore.</p>
-                                        <a href="">Learn More</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="almashaan-img">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="almashaan-item">
-                        <div class="container">
-                        <div class="row">
-                                <div class="col-md-7">
-                                    <div class="almashaan-content">
-                                        <h1>stainless steel boland</h1>
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum recusandae sit quae. Dignissimos, harum dolore.</p>
-                                        <a href="">Learn More</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="almashaan-img">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+        <div class="container">
+		<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="row align-items-center">
+						<!-- Content Column -->
+						<div class="col-md-7">
+							<div class="almashaan-slider-content">
+								<h4>STAINLESS STEEL	BOLLARD</h4>
+								<p>Leo site ultrices donec a volutpat penatibus mind suscipit aucibus and duis pharetra name sociosqu phasellus nunce accumsan</p>
+								<div class="almashaan-slider-list">
+									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
+									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
+									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
+								</div>
+								<a href="">learn more</a>
+							</div>
+						</div>
+						<!-- Image Column -->
+						<div class="col-md-5">
+							<img src="http://steel-wp.local/wp-content/uploads/2025/02/projects-4.jpg" class="d-block w-100" alt="...">
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row align-items-center">
+						<!-- Content Column -->
+						<div class="col-md-7">
+						<div class="almashaan-slider-content">
+								<h4>STAINLESS STEEL	BOLLARD</h4>
+								<p>Leo site ultrices donec a volutpat penatibus mind suscipit aucibus and duis pharetra name sociosqu phasellus nunce accumsan</p>
+								<div class="almashaan-slider-list">
+									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
+									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
+									<span><img src="http://steel-wp.local/wp-content/uploads/2025/02/what-we-do-1.png" alt="">Fire Resistant Up to 240 min</span>
+								</div>
+								<a href="">learn more</a>
+							</div>
+						</div>
+						<!-- Image Column -->
+						<div class="col-md-5">
+							<img src="http://steel-wp.local/wp-content/uploads/2025/02/projects-4.jpg" class="d-block w-100" alt="...">
+						</div>
+					</div>
+				</div>
+				<!-- Add more carousel items as needed -->
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+			</div>
+		</div>
 		<?php
 	}
 
