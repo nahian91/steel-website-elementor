@@ -38,7 +38,6 @@ function register_oembed_widget( $widgets_manager ) {
 
 	$widgets_manager->register( new \Almahsaan_Image_Box_Widget() );
 	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
-	$widgets_manager->register( new \Almahsaan_Faqs_Widget() );
 	$widgets_manager->register( new \Almahsaan_Process_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
 	$widgets_manager->register( new \Almahsaan_Gallery_Widget() );
@@ -62,13 +61,8 @@ function my_elementor_addon_enqueue_scripts() {
         plugin_dir_url(__FILE__) . 'assets/js/main.js',
         ['jquery'],
         '1.0.0',
-        true // Load in footer
+        true // 
     );
-
-    wp_enqueue_style('owl-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', [], '2.3.4');
-    wp_enqueue_style('owl-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', [], '2.3.4');
-    wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', ['jquery'], '2.3.4', true);
-    wp_enqueue_script('mixitup-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js', ['jquery'], '2.3.4', true);
 }
 add_action('wp_enqueue_scripts', 'my_elementor_addon_enqueue_scripts');
 
