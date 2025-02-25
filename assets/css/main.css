@@ -100,17 +100,13 @@
   gap: 30px;
   align-items: center;
 }
-.almashaan-slider-list img {
-  max-width: 40px;
+.almashaan-slider-list li{
+  font-size: 15px;
+  font-weight: 600;
 }
-.almashaan-slider-list span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 500;
-  font-size: 13px;
+.almashaan-slider-list li img {
+  max-width: 40px !important;
 }
-
 .almashaan-slider-content a {
   display: inline-block;
   background-color: #d25c3c;
@@ -188,7 +184,6 @@
 .e-font-icon-svg.e-fas-minus, .e-font-icon-svg.e-fas-plus {
   fill: white !important;
 }
-
 
 .working-process__background {
   background-color: #F5F5F5;
