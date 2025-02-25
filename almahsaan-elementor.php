@@ -32,7 +32,6 @@ function register_oembed_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/almahsaan-breadcumb.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-faqs.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-process.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-projects.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-banner.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-projects-slider.php' );
@@ -41,7 +40,6 @@ function register_oembed_widget( $widgets_manager ) {
 	$widgets_manager->register( new \Almahsaan_Breadcumb_Widget() );
 	$widgets_manager->register( new \Almahsaan_Faqs_Widget() );
 	$widgets_manager->register( new \Almahsaan_Process_Widget() );
-	$widgets_manager->register( new \Almahsaan_Projects_Widget() );
 	$widgets_manager->register( new \Almahsaan_Banner_Widget() );
 	$widgets_manager->register( new \Almahsaan_Gallery_Widget() );
 	$widgets_manager->register( new \Almahsaan_Projects_Slider_Widget() );

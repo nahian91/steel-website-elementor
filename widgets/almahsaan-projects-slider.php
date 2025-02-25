@@ -168,12 +168,12 @@ class Almahsaan_Projects_Slider_Widget extends \Elementor\Widget_Base {
 		<div class="row align-items-center">
 			<div class="col-md-9">
 				<div class="project-slider-heading">
-					<h4>EXPLORE OUR <br>COMPLETED PROJECTS</h4>
+					<h4>EXPLORE OUR <br>COMPLETED <span class="primary">PROJECTS</span></h4>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="project-slider-top-link">
-					<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
+					<a href="#"><?php echo esc_html__('view all projects', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
 				</div>
 			</div>
 		</div>
