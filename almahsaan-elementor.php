@@ -30,7 +30,6 @@ function register_oembed_widget( $widgets_manager ) {
 
 	require_once( __DIR__ . '/widgets/almahsaan-image-box.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-breadcumb.php' );
-	require_once( __DIR__ . '/widgets/almahsaan-faqs.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-process.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-banner.php' );
 	require_once( __DIR__ . '/widgets/almahsaan-gallery.php' );
