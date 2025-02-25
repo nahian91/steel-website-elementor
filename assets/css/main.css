@@ -100,7 +100,7 @@
   gap: 30px;
   align-items: center;
 }
-.almashaan-slider-list span img {
+.almashaan-slider-list img {
   max-width: 40px;
 }
 .almashaan-slider-list span {
@@ -166,7 +166,25 @@
 	height: 50px;
 	opacity: 1;
 }
-
 #almashaanProjectsLider .carousel-control-prev {
     right: 50px;
+}
+
+
+
+.e-n-accordion-item-title-text img {
+  max-width: 50px;
+  margin-right: 10px;
+}
+.e-opened, .e-closed {
+  background-color: #d25c3c;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.e-font-icon-svg.e-fas-minus, .e-font-icon-svg.e-fas-plus {
+  fill: white !important;
 }

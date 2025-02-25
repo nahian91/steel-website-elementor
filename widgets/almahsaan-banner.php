@@ -165,7 +165,7 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 					[
 						'name' => 'banner_features',
 						'label' => esc_html__( 'Gallery Features', 'textdomain' ),
-						'type' => \Elementor\Controls_Manager::WYSIWYG,
+						'type' => \Elementor\Controls_Manager::TEXTAREA,
 						'label_block' => true,
 					],
 					[
@@ -220,7 +220,7 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
                     </div>
                     <!-- Image Column -->
                     <div class="col-md-5">
-                        <img src="<?php echo $banner_img;?>" class="d-block w-100" alt="<?php echo $banner_title;?>">
+                        <img src="<?php echo $banner_img;?>" class="d-block w-100">
                     </div>
                 </div>
             </div>
