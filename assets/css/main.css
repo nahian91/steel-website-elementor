@@ -296,6 +296,7 @@
   font-family: var(--rr-ff-heading);
   background: #fff;
   border: 1px dashed rgba(8, 10, 11, 0.3);
+  transition: .3s;
 }
 .working-process__icon:hover {
   background-color: var(--rr-common-white);
@@ -304,8 +305,8 @@
   fill: var(--rr-theme-primary);
 }
 .working-process__icon:hover .number {
-  background: var(--rr-heading-primary);
-  color: var(--rr-common-white);
+  background: #d25c3c;
+  color: #fff;
 }
 .working-process__text {
   max-width: 300px;
