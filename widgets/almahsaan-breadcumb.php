@@ -147,6 +147,38 @@ class Almahsaan_Breadcumb_Widget extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
+		// Start the Style section
+		$this->start_controls_section(
+			'style_section',
+			[
+				'label' => esc_html__( 'Style', 'elementor-oembed-widget' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE, 
+			]
+		);
+	
+		// Typography control for Banner Title
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'label' => esc_html__( 'Title Typography', 'elementor-oembed-widget' ),
+				'name' => 'banner_title_typography',
+				'selector' => '{{WRAPPER}} .breadcumb-area h4',
+			]
+		);
+
+		$this->add_control(
+			'banner_bg_color',
+			[
+				'label' => esc_html__( 'Color', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .breadcumb-area' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+			
+		$this->end_controls_section();
+
 	}
 
 	/**

@@ -112,18 +112,6 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 	 * @access protected
 	 * @return bool Whether to cache the element output.
 	 */
-	protected function is_dynamic_content(): bool {
-		return false;
-	}
-
-	/**
-	 * Register oEmbed widget controls.
-	 *
-	 * Add input fields to allow the user to customize the widget settings.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
 	protected function register_controls(): void {
 
 		$this->start_controls_section(
@@ -133,7 +121,7 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
-
+	
 		$this->add_control(
 			'banners_list',
 			[
@@ -178,10 +166,40 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 				'title_field' => '{{{ banner_title }}}',
 			]
 		);			
-
+	
 		$this->end_controls_section();
+	
+		// Start the Style section
+		$this->start_controls_section(
+			'style_section',
+			[
+				'label' => esc_html__( 'Style', 'elementor-oembed-widget' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE, 
+			]
+		);
+	
+		// Typography control for Banner Title
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'label' => esc_html__( 'Title Typography', 'elementor-oembed-widget' ),
+				'name' => 'banner_title_typography',
+				'selector' => '{{WRAPPER}} .almashaan-slider-content h4',
+			]
+		);
 
-	}
+		// Typography control for Banner Description
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'label' => esc_html__( 'Description Typography', 'elementor-oembed-widget' ),
+				'name' => 'banner_desc_typography',
+				'selector' => '{{WRAPPER}} .almashaan-slider-content p',
+			]
+		);
+			
+		$this->end_controls_section();
+	}	
 
 	/**
 	 * Render oEmbed widget output on the frontend.

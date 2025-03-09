@@ -10,7 +10,7 @@
   }
   .almahsaan-image-content {
     position: absolute;
-    bottom: -130px;
+    bottom: -140px;
     background-color: #d25c3c;
     width: 100%;
     padding: 20px;
@@ -20,6 +20,8 @@
     text-transform: uppercase;
     font-weight: 700;
     color: #fff;
+    font-family: "Work Sans";
+    font-size: 30px;
   }
   .almahsaan-image-content a {
     display: block;
