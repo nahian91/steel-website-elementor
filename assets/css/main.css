@@ -80,6 +80,7 @@
   font-size: 22px;
   margin: 20px 0 10px;
   font-weight: 700;
+  font-family: "Work Sans";
 }
 .single-image-box p {
   font-size: 15px;
@@ -91,6 +92,7 @@
 .almashaan-slider-content h4 {
   font-size: 70px;
   font-weight: 800;
+  font-family: "Work Sans";
 }
 .almashaan-slider-content p {
   font-size: 18px;
@@ -316,6 +318,8 @@
 .working-process__text h6 {
   margin-bottom: 10px;
   font-size: 22px;
+  font-family: "Work Sans";
+  font-weight: 600;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
   .working-process__text {
