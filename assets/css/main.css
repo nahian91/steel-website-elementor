@@ -330,3 +330,10 @@
 .row .col-md-3:last-child .working-process__icon::before {
   display: none;
 }
+
+.elementor-section {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 60px;
+  padding-right: 60px;
+}
