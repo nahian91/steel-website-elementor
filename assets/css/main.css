@@ -49,13 +49,15 @@
   }
 
   
-.single-image-box {
-  background-color: #fff;
-  border: 1px solid #f4f4f4;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
+  .single-image-box {
+    background-color: #fff;
+    border: 1px solid #d25c3c;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 270px;
+    margin-bottom: 30px;
+  }
 .single-image-box i {
   position: absolute;
   right: 15px;
@@ -71,6 +73,10 @@
   border-radius: 50%;
   transform: rotate(-45deg);
   transition: .3s;
+}
+.single-image-box img {
+	max-width: 80px !important;
+	margin-bottom: 5px;
 }
 .single-image-box:hover i {
   top: 15px;
@@ -238,7 +244,7 @@
 .working-process__icon::before {
 	content: "";
 	top: 35%;
-	left: 110%;
+	left: 125%;
 	width: 100%;
 	height: 100%;
 	position: absolute;
