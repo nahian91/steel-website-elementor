@@ -343,6 +343,6 @@
 
 @media only screen and (max-width: 767px) {
   .container-fluid {
-    padding: 0 15px;
+    padding: 0 15px !important;
   }
 }
