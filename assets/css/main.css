@@ -337,3 +337,6 @@
   padding-left: 60px !important;
   padding-right: 60px !important;
 }
+.elementor-widget.elementor-widget-alsteel_gallery > .container-fluid {
+	padding: 0;
+}
