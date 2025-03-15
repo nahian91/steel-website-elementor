@@ -194,7 +194,7 @@ class Almahsaan_Breadcumb_Widget extends \Elementor\Widget_Base {
 		?>
 		 <!-- Breadcrumb area start  -->
 		 <section class="breadcumb-area">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
 						<h4>/ <?php the_title();?></h4>

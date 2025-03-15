@@ -181,7 +181,7 @@ class Almahsaan_Process_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 		<!-- "working-process area start -->
-				<div class="container">
+				<div class="container-fluid">
 				<div class="row">
 					<?php 
 					// Check if the repeater field has any items

@@ -189,7 +189,7 @@ class Almahsaan_Image_Box_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$images_box_list = $settings['images_box_list'];
 		?>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">	
 				<?php 
 					foreach($images_box_list as $list) {

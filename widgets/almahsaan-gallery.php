@@ -185,7 +185,7 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 
 		if (!empty($gallery_list) && is_array($gallery_list)) {
 			?>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<?php foreach ($gallery_list as $gallery): 
 						$gallery_img = $gallery['gallery_img']['url'] ?? '';

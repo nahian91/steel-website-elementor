@@ -213,7 +213,7 @@ class Almahsaan_Banner_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$banners_list = $settings['banners_list'];
 		?>
-        <div class="container">
+        <div class="container-fluid">
 			<div id="almashaanBanner" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
     <?php 
