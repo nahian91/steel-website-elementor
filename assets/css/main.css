@@ -73,6 +73,10 @@
   transform: rotate(-45deg);
   transition: .3s;
 }
+.single-image-box i:hover {
+	background-color: #d25c3c;
+	color: #fff;
+}
 .single-image-box img {
 	max-width: 80px !important;
 	margin-bottom: 5px;
