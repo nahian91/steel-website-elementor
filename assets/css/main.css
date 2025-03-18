@@ -48,15 +48,14 @@
     bottom: 0;
   }
 
-  
   .single-image-box {
     background-color: #fff;
     border: 1px solid #d25c3c;
     padding: 20px;
     position: relative;
-    overflow: hidden;
     min-height: 270px;
-    margin-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
 .single-image-box i {
   position: absolute;
@@ -77,16 +76,21 @@
 .single-image-box img {
 	max-width: 80px !important;
 	margin-bottom: 5px;
+	position: absolute;
+	top: -60px;
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #d25c3c !important;
 }
 .single-image-box:hover i {
   top: 15px;
 }
-
 .single-image-box h4 {
-  font-size: 22px;
-  margin: 20px 0 10px;
-  font-weight: 700;
-  font-family: "Work Sans";
+	font-size: 22px;
+	margin: 20px 0 10px;
+	font-weight: 700;
+	font-family: "Work Sans";
+	margin-top: 60px;
 }
 .single-image-box p {
   font-size: 15px;
