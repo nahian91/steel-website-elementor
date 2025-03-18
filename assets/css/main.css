@@ -60,7 +60,7 @@
 .single-image-box i {
   position: absolute;
   right: 15px;
-  top: -45px;
+  top: 15px;
   background-color: #fff;
   color: #fff;
   width: 35px;
@@ -81,9 +81,6 @@
 	background-color: #fff;
 	padding: 10px;
 	border: 1px solid #d25c3c !important;
-}
-.single-image-box:hover i {
-  top: 15px;
 }
 .single-image-box h4 {
 	font-size: 22px;
