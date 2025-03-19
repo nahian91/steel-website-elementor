@@ -204,7 +204,7 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 									<?php 
 										if($gallery_url) {
 											?>
-												<a href="#"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
+												<a href="<?php echo esc_url($gallery_url); ?>"><?php echo esc_html__('Find out more', 'textdomain'); ?> <i class="fa-solid fa-plus"></i></a>
 											<?php 
 										}
 									?>
