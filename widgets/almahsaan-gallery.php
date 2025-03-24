@@ -193,7 +193,7 @@ class Almahsaan_Gallery_Widget extends \Elementor\Widget_Base {
 						$gallery_url = $gallery['gallery_url']['url'] ?? ''; 
 					?>
 						
-						<div class="col-md-4">
+						<div class="col-md-6 col-lg-4">
 							<div class="almahsaan-image-hover">
 								<?php if (!empty($gallery_img)): ?>
 									<img src="<?php echo esc_url($gallery_img); ?>" alt="<?php echo esc_attr($gallery_title); ?>">

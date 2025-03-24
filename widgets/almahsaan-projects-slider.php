@@ -177,7 +177,7 @@ class Almahsaan_Projects_Slider_Widget extends \Elementor\Widget_Base {
 				</div>
 			</div>
 		</div>
-		<div id="almashaanProjectsLider" class="carousel slide" data-bs-ride="carousel">
+		<div id="almashaanProjectsLider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 			<div class="carousel-inner">
 				<?php foreach ($chunks as $index => $chunk) : ?>
 					<div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">

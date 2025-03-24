@@ -197,7 +197,7 @@ class Almahsaan_Image_Box_Widget extends \Elementor\Widget_Base {
 					$images_box_desc = $list['images_box_desc'];
 					$images_box_url = $list['images_box_url']['url'];
 					?>
-					<div class="col-lg-3 col-md-6">
+					<div class="col-xl-3 col-lg-4 col-md-6">
 						<div class="single-image-box">
 							<a href="<?php echo $images_box_url;?>"><i class="fa-solid fa-arrow-right-long"></i></a>
 							<img src="<?php echo $images_box_img;?>" alt="">
