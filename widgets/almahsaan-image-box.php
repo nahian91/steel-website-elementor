@@ -189,27 +189,25 @@ class Almahsaan_Image_Box_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$images_box_list = $settings['images_box_list'];
 		?>
-		<div class="container-fluid">
-			<div class="row">	
-				<?php 
-					foreach($images_box_list as $list) {
-						$images_box_img = $list['images_box_img']['url'];
-						$images_box_title = $list['images_box_title'];
-						$images_box_desc = $list['images_box_desc'];
-						$images_box_url = $list['images_box_url']['url'];
-						?>
-						<div class="col-md-3">
-							<div class="single-image-box">
-								<a href="<?php echo $images_box_url;?>"><i class="fa-solid fa-arrow-right-long"></i></a>
-								<img src="<?php echo $images_box_img;?>" alt="">
-								<h4><?php echo $images_box_title;?></h4>
-								<p><?php echo $images_box_desc;?></p>
-							</div>
-						</div>		
-						<?php
-					}
-				?>		
-			</div>
+		<div class="row">	
+			<?php 
+				foreach($images_box_list as $list) {
+					$images_box_img = $list['images_box_img']['url'];
+					$images_box_title = $list['images_box_title'];
+					$images_box_desc = $list['images_box_desc'];
+					$images_box_url = $list['images_box_url']['url'];
+					?>
+					<div class="col-lg-3 col-md-6">
+						<div class="single-image-box">
+							<a href="<?php echo $images_box_url;?>"><i class="fa-solid fa-arrow-right-long"></i></a>
+							<img src="<?php echo $images_box_img;?>" alt="">
+							<h4><?php echo $images_box_title;?></h4>
+							<p><?php echo $images_box_desc;?></p>
+						</div>
+					</div>		
+					<?php
+				}
+			?>		
 		</div>
 		<?php
 	}
