@@ -448,3 +448,6 @@
 .image-box-gray .single-image-box p {
   margin-bottom: 0 !important;
 }
+.image-box-gray .single-image-box a i:hover{
+  color: #d35c3b;
+}
