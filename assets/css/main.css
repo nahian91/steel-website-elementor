@@ -328,8 +328,19 @@
   }
 }
 
-.row .col-md-3:last-child .working-process__icon::before {
-  display: none;
+.working-process__icon:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: -170px;
+  top: 100%;
+  transform: translateY(-50%);
+  background-image: url('../img/shape.png');
+  background-repeat: no-repeat;
+}
+.process-box .col-md-3:last-child .working-process__icon::after {
+	display: none;
 }
 
 .container {
@@ -374,4 +385,52 @@
   background-color: #10181c;
   top: -50px;
   left: 35px;
+}
+
+/* Ensure the carousel is relatively positioned */
+#almashaanProjectsLider {
+  position: relative;
+}
+
+/* Style both control buttons */
+#almashaanProjectsLider .carousel-control-prev,
+#almashaanProjectsLider .carousel-control-next {
+  position: absolute;
+  top: 100%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+/* Change background on hover */
+#almashaanProjectsLider .carousel-control-prev:hover,
+#almashaanProjectsLider .carousel-control-next:hover {
+  background-color: #d35c3b;
+}
+
+/* Position them side-by-side in the center */
+#almashaanProjectsLider .carousel-control-prev {
+  left: 50%;
+  transform: translateX(-50px); /* Adjust based on width and spacing */
+}
+
+#almashaanProjectsLider .carousel-control-next {
+  left: 50%;
+  transform: translateX(10px); /* Adjust based on width and spacing */
+}
+
+/* Make the icons white for better visibility */
+#almashaanProjectsLider .carousel-control-prev-icon,
+#almashaanProjectsLider .carousel-control-next-icon {
+  filter: brightness(0) invert(1);
+}
+#almashaanProjectsLider {
+	margin-top: 60px !important;
 }
