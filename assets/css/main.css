@@ -431,3 +431,20 @@
 #almashaanProjectsLider {
 	margin-top: 60px !important;
 }
+
+.image-box-gray .single-image-box {
+  background-color: transparent;
+}
+.image-box-gray .single-image-box img {
+  border: 0 !important;
+  background-color: #efefef;
+  padding: 15px;
+  left: 40px;
+  top: -50px;
+}
+.image-box-gray .single-image-box a i {
+  background-color: transparent;
+}
+.image-box-gray .single-image-box p {
+  margin-bottom: 0 !important;
+}
