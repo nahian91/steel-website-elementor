@@ -357,3 +357,21 @@
   }
 }
 
+
+.image-box-black .single-image-box {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.image-box-black .single-image-box a i {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.image-box-black .single-image-box img {
+  background-color: transparent;
+  border: 0 !important;
+  background-color: #333;
+  top: -50px;
+  left: 35px;
+}
