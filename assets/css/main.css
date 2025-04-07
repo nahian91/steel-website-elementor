@@ -11,7 +11,7 @@
   .almahsaan-image-content {
     position: absolute;
     bottom: -200px;
-    background-color: #fff;
+    background-color: #d25c3c;
     width: 100%;
     padding: 20px;
     transition: .3s;
@@ -19,7 +19,7 @@
   .almahsaan-image-content h4 {
     text-transform: uppercase;
     font-weight: 700;
-    color: #10181c;
+    color: #fff;
     font-family: "Work Sans";
     font-size: 24px;
     line-height: 32px;
@@ -35,12 +35,12 @@
     color: #10181c;
   }
   .almahsaan-image-content a i {
-    background-color: #d25c3c;
+    background-color: #fff;
     width: 40px;
     height: 40px;
     text-align: center;
     line-height: 40px;
-    color: #fff;
+    color: #d35c3b;
   }
   .almahsaan-image-hover:hover .almahsaan-image-content {
     bottom: 0;
