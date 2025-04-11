@@ -11,7 +11,7 @@
   .almahsaan-image-content {
     position: absolute;
     bottom: -200px;
-    background-color: #d25c3c;
+    background-color: #939699;
     width: 100%;
     padding: 20px;
     transition: .3s;
@@ -48,7 +48,7 @@
 
   .single-image-box {
     background-color: #fff;
-    border: 1px solid #d25c3c;
+    border: 1px solid #939699;
     padding: 20px;
     position: relative;
     min-height: 270px;
@@ -65,14 +65,14 @@
   height: 35px;
   text-align: center;
   line-height: 35px;
-  border: 1px solid #d25c3c;
-  color: #d25c3c;
+  border: 1px solid #939699;
+  color: #939699;
   border-radius: 50%;
   transform: rotate(-45deg);
   transition: .3s;
 }
 .single-image-box i:hover {
-	background-color: #d25c3c;
+	background-color: #939699;
 	color: #fff;
 }
 .single-image-box img {
@@ -82,7 +82,7 @@
 	top: -60px;
 	background-color: #fff;
 	padding: 10px;
-	border: 1px solid #d25c3c !important;
+	border: 1px solid #939699 !important;
 }
 .single-image-box h4 {
 	font-size: 22px;
@@ -122,7 +122,7 @@
 }
 .almashaan-slider-content a {
   display: inline-block;
-  background-color: #d25c3c;
+  background-color: #939699;
   text-transform: uppercase;
   color: #fff;
   border-radius: 9px;
@@ -186,7 +186,7 @@
   margin-right: 10px;
 }
 .e-opened, .e-closed {
-  background-color: #d25c3c;
+  background-color: #939699;
   width: 40px !important;
   height: 40px !important;
   display: flex;
@@ -307,7 +307,7 @@
   fill: var(--rr-theme-primary);
 }
 .working-process__icon:hover .number {
-  background: #d25c3c;
+  background: #939699;
   color: #fff;
 }
 .working-process__text {
