@@ -40,7 +40,7 @@
     height: 40px;
     text-align: center;
     line-height: 40px;
-    color: #d35c3b;
+    color: #333;
   }
   .almahsaan-image-hover:hover .almahsaan-image-content {
     bottom: 0;
@@ -409,7 +409,7 @@
 /* Change background on hover */
 #almashaanProjectsLider .carousel-control-prev:hover,
 #almashaanProjectsLider .carousel-control-next:hover {
-  background-color: #d35c3b;
+  background-color: #939699;
 }
 
 /* Position them side-by-side in the center */
@@ -449,5 +449,5 @@
   margin-bottom: 0 !important;
 }
 .image-box-gray .single-image-box a i:hover{
-  color: #d35c3b;
+  color: #939699;
 }
